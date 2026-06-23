@@ -439,12 +439,12 @@ async function renderHome(dayNum) {
   const sessionKey = 'sess_'+dayNum;
   let sessionDone = new Set(S.get(sessionKey) || []);
 
-  // Day navigation
+  // Day navigation — placed AFTER progress bar
   const navHTML = `
-    <div class="day-nav">
-      ${dayNum > 1 ? `<button class="day-nav-btn" onclick="renderHome(${dayNum-1})">← Day ${dayNum-1}</button>` : '<div></div>'}
-      <div class="day-nav-info">${isToday ? '오늘' : isFuture ? '미리 학습' : '복습'}</div>
-      <button class="day-nav-btn primary" onclick="renderHome(${dayNum+1})">Day ${dayNum+1} →</button>
+    <div style="display:flex;gap:8px;margin:10px 16px 0;align-items:center;">
+      ${dayNum > 1 ? `<button onclick="renderHome(${dayNum-1})" style="padding:8px 14px;border-radius:99px;border:1px solid var(--border);background:var(--card);color:var(--text);cursor:pointer;font-size:13px;font-weight:600;font-family:inherit;touch-action:manipulation;">← Day ${dayNum-1}</button>` : '<div></div>'}
+      <div style="flex:1;text-align:center;font-size:12px;color:var(--muted);">${isToday ? '📅 오늘' : isFuture ? '⏩ 미리 학습' : '🔁 복습'}</div>
+      <button onclick="renderHome(${dayNum+1})" style="padding:8px 14px;border-radius:99px;border:none;background:var(--primary);color:#fff;cursor:pointer;font-size:13px;font-weight:700;font-family:inherit;touch-action:manipulation;">Day ${dayNum+1} →</button>
     </div>`;
 
   // Progress bar
@@ -474,7 +474,7 @@ async function renderHome(dayNum) {
 
   if (!content) {
     // Show loading
-    homeEl.innerHTML = navHTML + progressHTML + `
+    homeEl.innerHTML = progressHTML + navHTML + `
       <div class="loading-screen">
         <div class="spinner"></div>
         <div class="loading-title">Day ${dayNum} 콘텐츠 준비 중...</div>
@@ -514,6 +514,8 @@ async function renderHome(dayNum) {
 
   currentContent = content;
   quizIdx = 0; quizScore = 0; wStep = 0; wTask = 0;
+  // Re-read session after content assignment (in case it changed)
+  sessionDone = new Set(S.get(sessionKey) || []);
 
   function modHTML(id, ico, bg, name, desc, badge, badgeCls, bodyHTML, isLocked, isDone) {
     const locked = isLocked ? 'locked' : '';
@@ -622,7 +624,7 @@ async function renderHome(dayNum) {
     return !sessionDone.has(['word','phrase','listen','quiz'][idx-1]);
   };
 
-  homeEl.innerHTML = navHTML + progressHTML + `
+  homeEl.innerHTML = progressHTML + navHTML + `
     <div class="stitle">필수 과정 (30분)</div>
     ${modHTML('word','📚','#EEF0FF','오늘의 단어 5개',`${cur.theme} 핵심 단어`,'필수','mb-core', wordsHTML, false, isW('word'))}
     ${modHTML('phrase','💬','#E1F5EE','오늘의 회화 패턴','고빈도 문장 틀 · 무한 확장','필수','mb-core', phrasesHTML, isLocked('phrase'), isW('phrase'))}
@@ -641,6 +643,61 @@ async function renderHome(dayNum) {
 
   // Store current day ref
   homeEl.dataset.dayNum = dayNum;
+
+  // ── Restore completed state from storage ──
+  restoreSession(sessionDone, dayNum);
+}
+
+function restoreSession(sessionDone, dayNum) {
+  const coreOrder = ['word','phrase','listen','quiz'];
+  
+  coreOrder.forEach((id, idx) => {
+    const el = document.getElementById('mod-'+id);
+    if(!el) return;
+    
+    if(sessionDone.has(id)) {
+      // Mark as completed
+      el.classList.remove('locked', 'open');
+      el.classList.add('done');
+      const badge = document.getElementById('badge-'+id);
+      if(badge){ badge.textContent='완료 ✓'; badge.className='mbadge mb-done'; }
+      const dot = document.getElementById('dot-'+id);
+      if(dot) dot.className = 'mdot md-done';
+    } else {
+      // Unlock if previous is done
+      const prevDone = idx === 0 || sessionDone.has(coreOrder[idx-1]);
+      if(prevDone) {
+        el.classList.remove('locked');
+        const dot = document.getElementById('dot-'+id);
+        if(dot && dot.className === 'mdot md-todo') dot.className = 'mdot md-active';
+      }
+    }
+  });
+
+  // Update progress bar
+  const doneCnt = coreOrder.filter(m => sessionDone.has(m)).length;
+  const pct = Math.round(doneCnt / coreOrder.length * 100);
+  const pf = document.getElementById('pfill');
+  if(pf) pf.style.width = pct + '%';
+
+  // If all done today, show completion message at top
+  if(doneCnt === coreOrder.length) {
+    const dateStr = getDayDate(dayNum);
+    const isToday = dateStr === today;
+    if(isToday) {
+      const existing = document.getElementById('complete-banner');
+      if(!existing) {
+        const bar = document.querySelector('.dbar');
+        if(bar) {
+          const banner = document.createElement('div');
+          banner.id = 'complete-banner';
+          banner.style = 'background:var(--okl);border-radius:var(--rs);padding:10px 14px;margin-top:10px;display:flex;align-items:center;gap:8px;';
+          banner.innerHTML = '<span style="font-size:18px;">🎉</span><div><div style="font-size:13px;font-weight:700;color:var(--ok);">오늘 학습 완료!</div><div style="font-size:12px;color:var(--muted);">보너스 과정도 해볼까요?</div></div>';
+          bar.appendChild(banner);
+        }
+      }
+    }
+  }
 }
 
 // ── Toggle module ──

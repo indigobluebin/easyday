@@ -744,132 +744,99 @@ function answerQuiz(i, quizzes, dayNum) {
 function buildWritingUI(content, dayNum) {
   const el = document.getElementById('writing-content-area');
   if(!el) return;
-  const wLevels = [
-    {step:'Step 1',label:'패턴 채워넣기',desc:'오늘 배운 패턴에 단어만 넣으면 돼요!',
-      tasks:[{pattern:content.phrases[0]?.en||'I feel like ___.',hint:'오늘 배운 단어 활용!',
-        ex:content.phrases[0]?.ex||'',exko:content.phrases[0]?.exko||''}]},
-    {step:'Step 2',label:'한 문장 써보기',desc:'주제 보고 자유롭게. 틀려도 OK!',
-      tasks:[{prompt:content.writingPrompt,ex:content.phrases[1]?.ex||'',exko:content.phrases[1]?.exko||''}]},
-    {step:'Step 3',label:'나의 하루 2~3문장',desc:'오늘 배운 단어 하나 이상 꼭 넣어서!',
-      tasks:[{prompt:`오늘 배운 단어(${content.words.map(w=>w.en).join(', ')}) 중 하나 이상 써서 오늘 하루 2~3문장으로!`,
-        ex:'',exko:''}]}
-  ];
-
-  function renderWT() {
-    const lv = wLevels[wStep]; const task = lv.tasks[Math.min(wTask, lv.tasks.length-1)];
-    const isPattern = wStep===0;
-    let h = `<div class="card" style="margin-bottom:10px;">
-      <p style="font-size:13px;font-weight:700;margin-bottom:10px;">✏️ 초보 작문, 이렇게 시작해요</p>
-      <div>
-        <div style="display:flex;gap:10px;padding:8px 0;border-bottom:1px solid var(--border);">
-          <div style="width:24px;height:24px;border-radius:50%;background:var(--primary);color:#fff;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0;">1</div>
-          <div><div style="font-size:13px;font-weight:700;">패턴 채워넣기</div><div style="font-size:12px;color:var(--muted);">빈칸만 채워요!</div></div>
-        </div>
-        <div style="display:flex;gap:10px;padding:8px 0;border-bottom:1px solid var(--border);">
-          <div style="width:24px;height:24px;border-radius:50%;background:var(--primary);color:#fff;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0;">2</div>
-          <div><div style="font-size:13px;font-weight:700;">한 문장 자유 작성</div><div style="font-size:12px;color:var(--muted);">틀려도 OK!</div></div>
-        </div>
-        <div style="display:flex;gap:10px;padding:8px 0;">
-          <div style="width:24px;height:24px;border-radius:50%;background:var(--primary);color:#fff;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0;">3</div>
-          <div><div style="font-size:13px;font-weight:700;">나의 하루 2~3문장</div><div style="font-size:12px;color:var(--muted);">오늘 배운 단어 하나 이상!</div></div>
-        </div>
-      </div>
+  el.innerHTML = `
+    <div class="card" style="margin-bottom:10px;">
+      <p style="font-size:13px;color:var(--muted);line-height:1.6;">하고 싶은 말을 영어로 자유롭게 써보세요.<br>오늘 기분, 먹은 것, 일어난 일 — 뭐든 OK!</p>
     </div>
-    <div id="wtask"></div>`;
-    el.innerHTML = h;
-
-    let th = `<div class="card">
-      <span style="display:inline-block;font-size:11px;font-weight:700;color:var(--primary);background:var(--pl);border-radius:99px;padding:2px 9px;margin-bottom:7px;">${lv.step} · ${lv.label}</span>
-      <p style="font-size:12px;color:var(--muted);margin-bottom:10px;">${lv.desc}</p>`;
-    if(isPattern) {
-      th += `<div style="background:var(--pl);border-radius:var(--rs);padding:10px 12px;margin-bottom:8px;">
-        <div style="font-size:16px;font-weight:700;color:var(--primary);">${task.pattern}</div>
-        <div style="font-size:12px;color:var(--muted);margin-top:3px;">힌트: ${task.hint}</div>
-      </div><p style="font-size:12px;color:var(--muted);margin-bottom:5px;">완성된 문장 전체를 써주세요:</p>`;
-    } else {
-      th += `<div style="background:var(--bg);border-radius:var(--rs);padding:9px 11px;margin-bottom:8px;">
-        <p style="font-size:13px;font-weight:700;">${task.prompt}</p>
-      </div>`;
-    }
-    th += `<textarea class="wtxt" id="w-input" placeholder="여기에 영어로 써보세요..." rows="3"></textarea>`;
-    if(task.ex) {
-      th += `<button onclick="document.getElementById('w-ex').style.display='block';this.style.display='none';"
-        style="font-size:12px;color:var(--primary);background:none;border:none;cursor:pointer;text-decoration:underline;margin:6px 0 4px;font-family:inherit;">예시 답안 보기</button>
-        <div id="w-ex" style="display:none;background:var(--okl);border-radius:var(--rs);padding:9px 11px;margin-bottom:8px;">
-          <p style="font-size:13px;font-weight:700;color:var(--ok);">${task.ex}</p>
-          <p style="font-size:12px;color:var(--muted);margin-top:3px;">${task.exko}</p>
-        </div>`;
-    }
-    th += `<button class="wsbtn" id="w-sbtn" onclick="checkWriting(${dayNum})">✏️ AI 선생님한테 교정 받기</button>
-      <div id="w-fb"></div>`;
-    th += `<div style="display:flex;gap:7px;margin-top:10px;">
-      ${wStep>0?`<button class="btn s" style="flex:1;padding:9px;" onclick="wStep--;wTask=0;buildWritingUI(currentContent,${dayNum})">← 이전 단계</button>`:''}
-      ${wStep<wLevels.length-1?`<button class="btn s" style="flex:1;padding:9px;" onclick="wStep++;wTask=0;buildWritingUI(currentContent,${dayNum})">다음 단계 →</button>`:''}
-    </div></div>`;
-    document.getElementById('wtask').innerHTML = th;
-  }
-  renderWT();
+    <div class="card">
+      <textarea class="wtxt" id="w-input" placeholder="여기에 영어로 써보세요..." rows="4"></textarea>
+      <button class="wsbtn" id="w-sbtn" onclick="checkWritingNew()" style="margin-top:8px;">번역 & 더 좋은 표현 보기 →</button>
+      <div id="w-fb"></div>
+    </div>`;
 }
 
-async function checkWriting(dayNum) {
+async function checkWritingNew() {
   const inp = document.getElementById('w-input');
   if(!inp) return;
   const input = inp.value.trim();
   if(!input){ showToast('먼저 영어로 써보세요!'); return; }
   const btn = document.getElementById('w-sbtn');
-  btn.disabled=true;
-  btn.innerHTML='<div class="dots"><span></span><span></span><span></span></div> 읽고 있어요...';
+  btn.disabled = true;
+  btn.innerHTML = '<div class="dots"><span></span><span></span><span></span></div> 번역 중...';
 
   try {
-    const res = await fetch('https://api.anthropic.com/v1/messages',{
-      method:'POST', headers:{'Content-Type':'application/json'},
-      body: JSON.stringify({model:'claude-sonnet-4-6', max_tokens:1000,
-        system:`친근한 영어 선생님. 초보 한국인 성인 교정. JSON만 응답 (다른 텍스트 절대 금지):
-{"corrected":"문법적으로 완전히 교정된 전체 문장","corrections":[{"before":"학습자가 틀리게 쓴 정확한 부분","after":"올바른 표현","reason":"왜 틀렸는지 한국어로 쉽게 1문장"}],"praise":"구체적인 칭찬 1~2문장","tip":"오늘 꼭 기억할 팁 1문장","isCorrect":true/false}
-규칙: corrections는 실제로 틀린 부분만. before는 원문에서 틀린 부분 그대로. after는 올바른 표현. 맞으면 corrections 빈 배열.`,
-        messages:[{role:'user',content:`학습자 문장: "${input}"`}]
+    const res = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({
+        model: 'claude-sonnet-4-6',
+        max_tokens: 1000,
+        system: `친근한 영어 선생님. 초보 한국인 성인이 쓴 영어를 도와줘요. JSON만 응답 (다른 텍스트 절대 금지):
+{
+  "korean": "학습자가 쓴 영어를 한국어로 번역 (어색해도 의도한 내용 그대로)",
+  "basic": {"en":"문법적으로 맞는 기본 문장","tip":"왜 이렇게 고쳤는지 한국어로 1줄"},
+  "natural": {"en":"더 자연스러운 영어 표현","tip":"어떤 표현이 추가됐는지 한국어로 1줄"},
+  "native": {"en":"원어민처럼 자연스러운 표현","tip":"슬랭이나 관용구 설명 한국어로 1줄"}
+}
+규칙: 학습자 의도를 존중해서 같은 내용을 3단계로 업그레이드. 초보자도 이해할 수 있게 쉽게 설명.`,
+        messages: [{role: 'user', content: `학습자가 쓴 영어: "${input}"`}]
       })
     });
     const data = await res.json();
-    const fb = JSON.parse(data.content[0].text.replace(/```json|```/g,'').trim());
-    renderWFb(input, fb);
+    const fb = JSON.parse(data.content[0].text.replace(/```json|```/g, '').trim());
+    renderWritingNew(input, fb);
   } catch(e) {
-    document.getElementById('w-fb').innerHTML=`<div style="margin-top:10px;padding:10px;background:var(--errl);border-radius:var(--rs);font-size:13px;color:var(--err);">오류가 생겼어요. 다시 시도해주세요.</div>`;
+    document.getElementById('w-fb').innerHTML = `<div style="margin-top:10px;padding:10px;background:var(--errl);border-radius:var(--rs);font-size:13px;color:var(--err);">오류가 생겼어요. 다시 시도해주세요.</div>`;
   }
-  btn.disabled=false; btn.innerHTML='✏️ 다시 교정 받기';
+  btn.disabled = false;
+  btn.innerHTML = '번역 & 더 좋은 표현 보기 →';
 }
 
-function renderWFb(orig, fb) {
-  let h = `<div class="fbblock">
-    <div class="fbsec" style="background:${fb.isCorrect?'var(--okl)':'var(--card)'}">
-      <div class="fblabel ${fb.isCorrect?'g':'b'}">${fb.isCorrect?'✓ 완벽해요!':'✏️ 교정된 문장'}</div>
-      <div style="font-size:15px;font-weight:700;">${fb.corrected}</div>
-      ${!fb.isCorrect?`<div style="margin-top:6px;font-size:12px;color:var(--muted);">내 문장: <span style="text-decoration:line-through;color:var(--err);">${orig}</span></div>`:''}
+function renderWritingNew(orig, fb) {
+  let h = `
+    <div style="margin-top:14px;border-radius:var(--r);overflow:hidden;border:1px solid var(--border);">
+      <div style="padding:12px 14px;border-bottom:1px solid var(--border);">
+        <div style="font-size:10px;font-weight:700;letter-spacing:0.5px;text-transform:uppercase;color:var(--muted);margin-bottom:7px;">🇰🇷 내가 쓴 내용의 한국어 번역</div>
+        <div style="font-size:15px;color:var(--text);line-height:1.6;">"${fb.korean}"</div>
+        <div style="font-size:12px;color:var(--muted);margin-top:5px;text-decoration:line-through;">${orig}</div>
+      </div>
+
+      <div style="padding:12px 14px;border-bottom:1px solid var(--border);background:#fafafa;">
+        <div style="font-size:10px;font-weight:700;letter-spacing:0.5px;text-transform:uppercase;color:var(--muted);margin-bottom:10px;">💡 더 자연스러운 영어 표현</div>
+
+        <div style="background:var(--card);border:1px solid var(--border);border-radius:var(--rs);padding:11px 13px;margin-bottom:8px;">
+          <div style="display:flex;align-items:center;gap:6px;margin-bottom:7px;">
+            <span style="font-size:10px;background:var(--pl);color:var(--primary);padding:2px 8px;border-radius:99px;font-weight:700;">기본</span>
+          </div>
+          <div style="font-size:15px;font-weight:700;color:var(--text);margin-bottom:5px;">"${fb.basic.en}"</div>
+          <div style="font-size:12px;color:var(--muted);">${fb.basic.tip}</div>
+          <button class="abtn s" data-speak="${fb.basic.en}" data-rate="0.82" style="margin-top:9px;font-size:11px;padding:5px 11px;">▶ 듣기</button>
+        </div>
+
+        <div style="background:var(--card);border:1px solid var(--border);border-radius:var(--rs);padding:11px 13px;margin-bottom:8px;">
+          <div style="display:flex;align-items:center;gap:6px;margin-bottom:7px;">
+            <span style="font-size:10px;background:var(--okl);color:var(--ok);padding:2px 8px;border-radius:99px;font-weight:700;">자연스러운</span>
+          </div>
+          <div style="font-size:15px;font-weight:700;color:var(--text);margin-bottom:5px;">"${fb.natural.en}"</div>
+          <div style="font-size:12px;color:var(--muted);">${fb.natural.tip}</div>
+          <button class="abtn s" data-speak="${fb.natural.en}" data-rate="0.82" style="margin-top:9px;font-size:11px;padding:5px 11px;">▶ 듣기</button>
+        </div>
+
+        <div style="background:var(--card);border:1px solid var(--border);border-radius:var(--rs);padding:11px 13px;">
+          <div style="display:flex;align-items:center;gap:6px;margin-bottom:7px;">
+            <span style="font-size:10px;background:var(--warnl);color:var(--warn);padding:2px 8px;border-radius:99px;font-weight:700;">원어민처럼</span>
+          </div>
+          <div style="font-size:15px;font-weight:700;color:var(--text);margin-bottom:5px;">"${fb.native.en}"</div>
+          <div style="font-size:12px;color:var(--muted);">${fb.native.tip}</div>
+          <button class="abtn s" data-speak="${fb.native.en}" data-rate="0.82" style="margin-top:9px;font-size:11px;padding:5px 11px;">▶ 듣기</button>
+        </div>
+      </div>
+
+      <div style="padding:10px 14px;">
+        <button class="wsbtn" onclick="document.getElementById('w-input').value='';document.getElementById('w-fb').innerHTML='';document.getElementById('w-input').focus();" style="background:var(--card);color:var(--primary);border:1px solid var(--primary);">다시 써보기</button>
+      </div>
     </div>`;
-  if(fb.corrections && fb.corrections.length){
-    h+=`<div class="fbsec"><div class="fblabel r">🔴 빨간펜 교정</div>`;
-    fb.corrections.forEach((c,i)=>{
-      h+=`<div style="margin-bottom:10px;padding:10px;background:#fff8f8;border-radius:8px;border-left:3px solid var(--err);">
-        <div style="font-size:12px;color:var(--muted);margin-bottom:4px;">틀린 부분 ${i+1}</div>
-        <div style="font-size:13px;color:var(--err);text-decoration:line-through;">✗ "${c.before}"</div>
-        <div style="font-size:13px;color:var(--ok);font-weight:700;margin-top:4px;">✓ "${c.after}"</div>
-        <div style="font-size:12px;color:var(--muted);margin-top:6px;padding-top:6px;border-top:1px solid var(--border);">📌 ${c.reason}</div>
-      </div>`;
-    });
-    h+=`</div>`;
-  }
-  h+=`<div class="fbsec" style="background:var(--okl)"><div class="fblabel g">💚 잘한 점</div><div style="font-size:13px;color:var(--ok);line-height:1.6;">${fb.praise}</div></div>
-    <div class="fbsec"><div class="fblabel b">💡 오늘의 팁</div><div style="font-size:13px;color:var(--muted);line-height:1.6;">${fb.tip}</div></div>
-  </div>`;
-  const audioDiv = document.createElement('div');
-  audioDiv.style.marginTop='9px';
-  const ab = document.createElement('button');
-  ab.className='abtn'; ab.style.width='100%'; ab.style.justifyContent='center';
-  ab.textContent='▶ 교정된 문장 듣기';
-  ab.dataset.speak = fb.corrected; ab.dataset.rate = '0.82';
-  audioDiv.appendChild(ab);
   document.getElementById('w-fb').innerHTML = h;
-  document.getElementById('w-fb').appendChild(audioDiv);
 }
 
 // ── Stats ──

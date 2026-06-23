@@ -26,7 +26,6 @@
   .page{display:none;padding:0 0 100px;}
   .page.active{display:block;}
 
-  /* Progress */
   .dbar{margin:14px 16px 0;background:var(--card);border-radius:var(--r);border:1px solid var(--border);padding:14px;}
   .dmeta{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;}
   .dlabel{font-size:12px;color:var(--muted);font-weight:600;}
@@ -42,7 +41,6 @@
   .stitle{font-size:11px;color:var(--muted);font-weight:700;letter-spacing:0.6px;
     text-transform:uppercase;margin:20px 16px 8px;}
 
-  /* Module accordion */
   .mod{margin:0 16px 8px;background:var(--card);border-radius:var(--r);
     border:1px solid var(--border);overflow:hidden;}
   .mod.done{border-color:var(--ok);}
@@ -59,130 +57,110 @@
   .mb-core{background:var(--pl);color:var(--primary);}
   .mb-bonus{background:var(--warnl);color:var(--warn);}
   .mb-done{background:var(--okl);color:var(--ok);}
-  .chevron{font-size:12px;color:var(--light);flex-shrink:0;transition:transform 0.2s;}
+  .chevron{font-size:12px;color:var(--light);flex-shrink:0;transition:transform 0.2s;margin-left:4px;}
   .mod.open .chevron{transform:rotate(180deg);}
-
   .mod-body{display:none;padding:14px;border-top:1px solid var(--border);background:#fafafa;}
   .mod.open .mod-body{display:block;}
 
-  /* Cards */
-  .card{background:var(--card);border-radius:var(--r);border:1px solid var(--border);
-    padding:16px;margin-bottom:10px;}
+  .card{background:var(--card);border-radius:var(--r);border:1px solid var(--border);padding:16px;margin-bottom:10px;}
   .wen{font-size:24px;font-weight:800;margin-bottom:2px;}
   .wipa{font-size:13px;color:var(--muted);font-style:italic;margin-bottom:2px;}
-  .wkor-pron{font-size:12px;color:var(--warn);font-weight:600;margin-bottom:6px;}
+  .wkor{font-size:12px;color:var(--warn);font-weight:600;margin-bottom:6px;}
   .wko{font-size:15px;color:var(--primary);font-weight:700;margin-bottom:10px;}
-  .wex{font-size:13px;color:var(--muted);border-left:3px solid var(--primary);
-    padding-left:9px;font-style:italic;margin-bottom:3px;}
+  .wex{font-size:13px;color:var(--muted);border-left:3px solid var(--primary);padding-left:9px;font-style:italic;margin-bottom:3px;}
   .wexko{font-size:12px;color:var(--light);padding-left:12px;margin-bottom:10px;}
-
-  .phr-en{font-size:17px;font-weight:700;margin-bottom:3px;}
-  .phr-ko{font-size:13px;color:var(--primary);font-weight:600;margin-bottom:6px;}
-  .phr-when{font-size:11px;color:var(--muted);background:var(--bg);border-radius:var(--rs);
-    padding:5px 9px;margin-bottom:8px;}
-  .phr-ex{font-size:13px;color:var(--muted);font-style:italic;border-left:3px solid var(--primary);
-    padding-left:9px;margin-bottom:3px;}
-  .phr-exko{font-size:12px;color:var(--light);padding-left:12px;margin-bottom:9px;}
-
-  .lst-phrase{font-size:18px;font-weight:700;margin-bottom:4px;}
-  .lst-ipa{font-size:13px;color:var(--muted);margin-bottom:2px;}
-  .lst-kor{font-size:12px;color:var(--warn);font-weight:600;margin-bottom:4px;}
-  .lst-ko{font-size:13px;color:var(--primary);font-weight:600;margin-bottom:12px;}
-  .lst-tip{font-size:12px;color:var(--muted);background:var(--warnl);border-radius:var(--rs);
-    padding:7px 10px;margin-top:9px;}
-
-  /* Audio buttons — standalone, no event bubbling issues */
-  .abtn{display:inline-flex;align-items:center;gap:5px;padding:7px 13px;
-    background:var(--primary);color:#fff;border-radius:99px;border:none;cursor:pointer;
-    font-size:12px;font-weight:700;font-family:inherit;touch-action:manipulation;}
+  .arow{display:flex;gap:7px;flex-wrap:wrap;margin-top:4px;}
+  .abtn{display:inline-flex;align-items:center;gap:5px;padding:7px 13px;background:var(--primary);
+    color:#fff;border-radius:99px;border:none;cursor:pointer;font-size:12px;font-weight:700;
+    font-family:inherit;touch-action:manipulation;}
   .abtn.s{background:var(--pl);color:var(--primary);}
   .abtn:active{opacity:0.75;}
-  .arow{display:flex;gap:7px;flex-wrap:wrap;margin-top:2px;}
 
-  /* Quiz */
-  .qcard{background:var(--card);border-radius:var(--r);border:1px solid var(--border);
-    padding:16px;margin-bottom:10px;}
-  .qq{font-size:15px;font-weight:700;margin-bottom:14px;line-height:1.5;}
-  .qopts{display:grid;gap:7px;}
-  .qbtn{text-align:left;padding:11px 13px;border-radius:var(--rs);border:1px solid var(--border);
-    background:var(--card);cursor:pointer;font-size:14px;font-family:inherit;width:100%;
-    touch-action:manipulation;}
-  .qbtn.ok{border-color:var(--ok);background:var(--okl);color:var(--ok);font-weight:700;}
-  .qbtn.no{border-color:var(--err);background:var(--errl);color:var(--err);}
-  .qfb{margin-top:10px;padding:9px 12px;border-radius:var(--rs);font-size:13px;}
-  .qfb.ok{background:var(--okl);color:var(--ok);}
-  .qfb.no{background:var(--errl);color:var(--err);}
-
-  /* Buttons */
   .btn{display:flex;align-items:center;justify-content:center;gap:6px;width:100%;
     padding:12px;border-radius:var(--rs);border:none;background:var(--primary);color:#fff;
     cursor:pointer;font-size:15px;font-weight:700;margin-top:10px;font-family:inherit;
     touch-action:manipulation;}
   .btn:active{background:var(--pd);}
   .btn.s{background:var(--card);color:var(--primary);border:1px solid var(--primary);}
+  .btn:disabled{background:var(--border);color:var(--light);cursor:not-allowed;}
 
-  /* Writing */
-  .wpill{display:inline-block;font-size:11px;font-weight:700;color:var(--primary);
-    background:var(--pl);border-radius:99px;padding:2px 9px;margin-bottom:7px;}
+  .qcard{background:var(--card);border-radius:var(--r);border:1px solid var(--border);padding:16px;margin-bottom:10px;}
+  .qq{font-size:15px;font-weight:700;margin-bottom:14px;line-height:1.5;}
+  .qopts{display:grid;gap:7px;}
+  .qbtn{text-align:left;padding:11px 13px;border-radius:var(--rs);border:1px solid var(--border);
+    background:var(--card);cursor:pointer;font-size:14px;font-family:inherit;width:100%;touch-action:manipulation;}
+  .qbtn.ok{border-color:var(--ok);background:var(--okl);color:var(--ok);font-weight:700;}
+  .qbtn.no{border-color:var(--err);background:var(--errl);color:var(--err);}
+  .qfb{margin-top:10px;padding:9px 12px;border-radius:var(--rs);font-size:13px;}
+  .qfb.ok{background:var(--okl);color:var(--ok);}
+  .qfb.no{background:var(--errl);color:var(--err);}
+
   .wtxt{width:100%;border:1.5px solid var(--border);border-radius:var(--rs);padding:11px;
     font-size:15px;font-family:inherit;resize:none;min-height:80px;background:var(--card);
     color:var(--text);outline:none;display:block;}
   .wtxt:focus{border-color:var(--primary);}
   .wsbtn{display:flex;align-items:center;justify-content:center;gap:6px;width:100%;
     padding:11px;border-radius:var(--rs);border:none;background:var(--primary);color:#fff;
-    cursor:pointer;font-size:14px;font-weight:700;margin-top:8px;font-family:inherit;
-    touch-action:manipulation;}
+    cursor:pointer;font-size:14px;font-weight:700;margin-top:8px;font-family:inherit;touch-action:manipulation;}
   .wsbtn:disabled{background:var(--border);color:var(--light);cursor:not-allowed;}
-
   .fbblock{margin-top:12px;border-radius:var(--r);overflow:hidden;border:1px solid var(--border);}
   .fbsec{padding:12px 14px;border-bottom:1px solid var(--border);}
   .fbsec:last-child{border-bottom:none;}
   .fblabel{font-size:10px;font-weight:700;letter-spacing:0.5px;text-transform:uppercase;margin-bottom:7px;}
-  .fblabel.r{color:var(--err);}  .fblabel.g{color:var(--ok);}  .fblabel.b{color:var(--primary);}
-  .ci-before{font-size:13px;color:var(--err);text-decoration:line-through;}
-  .ci-after{font-size:13px;color:var(--ok);font-weight:700;}
-  .ci-why{font-size:12px;color:var(--muted);margin-top:1px;}
+  .fblabel.r{color:var(--err);} .fblabel.g{color:var(--ok);} .fblabel.b{color:var(--primary);}
 
-  /* Stats */
+  /* Loading screen */
+  .loading-screen{display:flex;flex-direction:column;align-items:center;justify-content:center;
+    min-height:60vh;gap:16px;padding:20px;}
+  .loading-title{font-size:18px;font-weight:700;color:var(--primary);}
+  .loading-sub{font-size:13px;color:var(--muted);text-align:center;line-height:1.6;}
+  .spinner{width:40px;height:40px;border:3px solid var(--pl);border-top-color:var(--primary);
+    border-radius:50%;animation:spin 0.8s linear infinite;}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  .load-steps{display:flex;flex-direction:column;gap:8px;width:100%;max-width:280px;}
+  .load-step{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--muted);}
+  .load-step.done{color:var(--ok);}
+  .load-step.active{color:var(--primary);font-weight:600;}
+
+  /* Day nav */
+  .day-nav{display:flex;gap:8px;margin:14px 16px 0;align-items:center;}
+  .day-nav-btn{padding:7px 14px;border-radius:99px;border:1px solid var(--border);background:var(--card);
+    color:var(--text);cursor:pointer;font-size:12px;font-weight:600;font-family:inherit;touch-action:manipulation;}
+  .day-nav-btn:active{background:var(--bg);}
+  .day-nav-btn.primary{background:var(--primary);color:#fff;border-color:var(--primary);}
+  .day-nav-info{flex:1;text-align:center;font-size:12px;color:var(--muted);}
+
   .sgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:0 16px;}
-  .scard{background:var(--card);border-radius:var(--r);border:1px solid var(--border);
-    padding:12px;text-align:center;}
+  .scard{background:var(--card);border-radius:var(--r);border:1px solid var(--border);padding:12px;text-align:center;}
   .snum{font-size:22px;font-weight:800;color:var(--primary);}
   .slbl{font-size:11px;color:var(--muted);margin-top:2px;}
-
   .calrow{display:flex;gap:5px;margin:0 16px;justify-content:space-between;}
   .calday{flex:1;text-align:center;}
   .callbl{font-size:10px;color:var(--muted);margin-bottom:3px;}
-  .caldot{width:30px;height:30px;border-radius:50%;margin:0 auto;display:flex;
-    align-items:center;justify-content:center;font-size:11px;font-weight:700;}
+  .caldot{width:30px;height:30px;border-radius:50%;margin:0 auto;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;}
   .cal-done{background:var(--primary);color:#fff;}
   .cal-today{background:var(--pl);color:var(--primary);border:2px solid var(--primary);}
   .cal-miss{background:var(--border);color:var(--light);}
 
-  .rcard{margin:0 16px 8px;background:var(--card);border-radius:var(--r);
-    border:1px solid var(--border);padding:14px;}
-  .rrow{display:flex;gap:10px;align-items:flex-start;padding:9px 0;
-    border-bottom:1px solid var(--border);}
+  .rcard{margin:0 16px 8px;background:var(--card);border-radius:var(--r);border:1px solid var(--border);padding:14px;}
+  .rrow{display:flex;gap:10px;align-items:flex-start;padding:9px 0;border-bottom:1px solid var(--border);}
   .rrow:last-child{border-bottom:none;}
   .rtime{font-size:11px;font-weight:700;color:var(--primary);min-width:44px;padding-top:2px;}
   .rtitle{font-size:13px;font-weight:700;margin-bottom:2px;}
   .rdesc{font-size:12px;color:var(--muted);line-height:1.5;}
 
-  /* Bottom nav */
-  .bnav{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;
-    max-width:480px;background:var(--card);border-top:1px solid var(--border);
-    display:flex;padding-bottom:env(safe-area-inset-bottom,0px);z-index:20;}
+  .bnav{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:480px;
+    background:var(--card);border-top:1px solid var(--border);display:flex;
+    padding-bottom:env(safe-area-inset-bottom,0px);z-index:20;}
   .bn{flex:1;padding:10px 0 12px;text-align:center;cursor:pointer;touch-action:manipulation;}
   .bn-ico{font-size:20px;display:block;}
   .bn-lbl{font-size:10px;color:var(--muted);display:block;margin-top:1px;font-weight:500;}
   .bn.active .bn-lbl{color:var(--primary);font-weight:700;}
 
-  .toast{position:fixed;bottom:90px;left:50%;transform:translateX(-50%);
-    background:#1a1a1a;color:#fff;padding:10px 18px;border-radius:99px;font-size:13px;
-    font-weight:600;opacity:0;transition:opacity 0.3s;pointer-events:none;
-    white-space:nowrap;z-index:99;}
+  .toast{position:fixed;bottom:90px;left:50%;transform:translateX(-50%);background:#1a1a1a;
+    color:#fff;padding:10px 18px;border-radius:99px;font-size:13px;font-weight:600;
+    opacity:0;transition:opacity 0.3s;pointer-events:none;white-space:nowrap;z-index:99;}
   .toast.show{opacity:1;}
-
   .dots{display:inline-flex;gap:4px;}
   .dots span{width:5px;height:5px;border-radius:50%;background:#fff;animation:bop 1s infinite;}
   .dots span:nth-child(2){animation-delay:.15s;}
@@ -199,162 +177,39 @@
 
   <!-- HOME -->
   <div class="page active" id="page-home">
-    <div class="dbar">
-      <div class="dmeta">
-        <span class="dlabel">Week 1 · 감정&amp;상태 표현</span>
-        <span class="dday" id="day-lbl">Day 1</span>
-      </div>
-      <div class="ptrack"><div class="pfill" id="pfill" style="width:0%"></div></div>
-      <div class="mdots">
-        <span class="mdot md-active" id="dot-word">📚 단어</span>
-        <span class="mdot md-todo" id="dot-phrase">💬 회화</span>
-        <span class="mdot md-todo" id="dot-listen">🎧 발음</span>
-        <span class="mdot md-todo" id="dot-quiz">✅ 퀴즈</span>
-      </div>
-    </div>
-
-    <div class="stitle">필수 과정 (30분)</div>
-
-    <div class="mod" id="mod-word">
-      <div class="mod-hdr" onclick="toggleMod('word')">
-        <div class="mod-ico" style="background:#EEF0FF">📚</div>
-        <div class="mod-meta"><div class="mod-name">오늘의 단어 5개</div><div class="mod-desc">Oxford 3000 기반 · 감정&amp;상태</div></div>
-        <span class="mbadge mb-core" id="badge-word">필수</span>
-        <span class="chevron">▼</span>
-      </div>
-      <div class="mod-body">
-        <div id="word-content"></div>
-        <button class="btn" onclick="completeMod('word')">완료 — 다음으로 ✓</button>
-      </div>
-    </div>
-
-    <div class="mod locked" id="mod-phrase">
-      <div class="mod-hdr" onclick="toggleMod('phrase')">
-        <div class="mod-ico" style="background:#E1F5EE">💬</div>
-        <div class="mod-meta"><div class="mod-name">오늘의 회화 패턴</div><div class="mod-desc">고빈도 문장 틀 · 무한 확장</div></div>
-        <span class="mbadge mb-core" id="badge-phrase">필수</span>
-        <span class="chevron">▼</span>
-      </div>
-      <div class="mod-body">
-        <div id="phrase-content"></div>
-        <button class="btn" onclick="completeMod('phrase')">완료 ✓</button>
-      </div>
-    </div>
-
-    <div class="mod locked" id="mod-listen">
-      <div class="mod-hdr" onclick="toggleMod('listen')">
-        <div class="mod-ico" style="background:#FAEEDA">🎧</div>
-        <div class="mod-meta"><div class="mod-name">발음 &amp; 듣기 훈련</div><div class="mod-desc">연음·축약 — 원어민 속도 적응</div></div>
-        <span class="mbadge mb-core" id="badge-listen">필수</span>
-        <span class="chevron">▼</span>
-      </div>
-      <div class="mod-body">
-        <div id="listen-content"></div>
-        <button class="btn" onclick="completeMod('listen')">완료 ✓</button>
-      </div>
-    </div>
-
-    <div class="mod locked" id="mod-quiz">
-      <div class="mod-hdr" onclick="toggleMod('quiz')">
-        <div class="mod-ico" style="background:#FCEBEB">✅</div>
-        <div class="mod-meta"><div class="mod-name">복습 퀴즈</div><div class="mod-desc">오늘 배운 것 확인</div></div>
-        <span class="mbadge mb-core" id="badge-quiz">필수</span>
-        <span class="chevron">▼</span>
-      </div>
-      <div class="mod-body"><div id="quiz-content"></div></div>
-    </div>
-
-    <div class="stitle">보너스 과정 (선택)</div>
-
-    <div class="mod" id="mod-slang">
-      <div class="mod-hdr" onclick="toggleMod('slang')">
-        <div class="mod-ico" style="background:#FBEAF0">🔥</div>
-        <div class="mod-meta"><div class="mod-name">슬랭 &amp; 진짜 표현</div><div class="mod-desc">교과서엔 없는 원어민 영어</div></div>
-        <span class="mbadge mb-bonus">보너스</span>
-        <span class="chevron">▼</span>
-      </div>
-      <div class="mod-body"><div id="slang-content"></div></div>
-    </div>
-
-    <div class="mod" id="mod-story">
-      <div class="mod-hdr" onclick="toggleMod('story')">
-        <div class="mod-ico" style="background:#EAF3DE">📖</div>
-        <div class="mod-meta"><div class="mod-name">짧은 영어 스토리</div><div class="mod-desc">미니 독해 + 문법 포인트</div></div>
-        <span class="mbadge mb-bonus">보너스</span>
-        <span class="chevron">▼</span>
-      </div>
-      <div class="mod-body">
-        <div class="card">
-          <div style="background:var(--warnl);border-radius:var(--rs);padding:7px 10px;margin-bottom:12px;font-size:12px;color:var(--warn);font-weight:600;">📖 먼저 혼자 읽어보세요! 다 읽고 나서 해석 버튼!</div>
-          <p style="font-size:15px;line-height:1.9;margin-bottom:14px;font-style:italic;">"Sarah woke up late. She ran to the bus stop, but the bus was already gone. 'Not again!' she said. So she decided to walk — and found a beautiful café she'd never seen before."</p>
-          <div class="arow" style="margin-bottom:12px;">
-            <button class="abtn" data-speak="Sarah woke up late. She ran to the bus stop, but the bus was already gone. Not again! So she decided to walk, and found a beautiful cafe." data-rate="0.82">▶ 천천히</button>
-            <button class="abtn s" data-speak="Sarah woke up late. She ran to the bus stop, but the bus was already gone. Not again! So she decided to walk, and found a beautiful cafe." data-rate="1.0">▶ 원속도</button>
-          </div>
-          <button onclick="document.getElementById('story-trans').style.display='block';this.style.display='none';"
-            style="width:100%;padding:9px;border-radius:var(--rs);border:1px dashed var(--border);background:var(--bg);color:var(--muted);cursor:pointer;font-size:13px;font-weight:600;margin-bottom:10px;font-family:inherit;touch-action:manipulation;">
-            👀 해석 보기
-          </button>
-          <div id="story-trans" style="display:none;">
-            <p style="font-size:13px;color:var(--muted);margin-bottom:5px;font-weight:600;">해석</p>
-            <p style="font-size:13px;line-height:1.8;margin-bottom:12px;">사라는 늦게 일어났어요. 버스 정류장으로 뛰어갔지만 버스는 이미 떠났어요. "또야!" 걸어가기로 했는데 — 한 번도 못 봤던 예쁜 카페를 발견했어요.</p>
-            <div style="background:var(--pl);border-radius:var(--rs);padding:9px 11px;">
-              <p style="font-size:12px;font-weight:700;color:var(--primary);margin-bottom:3px;">문법 포인트</p>
-              <p style="font-size:12px;">"she'd never seen" = she had never seen → 과거완료. 지금 이전까지 한 번도 못 봤다는 뜻.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="mod" id="mod-writing">
-      <div class="mod-hdr" onclick="toggleMod('writing')">
-        <div class="mod-ico" style="background:#F1EFE8">✏️</div>
-        <div class="mod-meta"><div class="mod-name">AI 빨간펜 작문</div><div class="mod-desc">내가 쓰면 AI 선생님이 바로 교정</div></div>
-        <span class="mbadge mb-bonus">보너스</span>
-        <span class="chevron">▼</span>
-      </div>
-      <div class="mod-body"><div id="writing-content"></div></div>
-    </div>
+    <div id="home-content"></div>
   </div>
 
   <!-- STATS -->
   <div class="page" id="page-stats">
     <div style="padding:16px 16px 0;display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;">
       <div style="font-size:16px;font-weight:800;">내 학습 현황</div>
-      <div style="font-size:11px;font-weight:700;background:var(--pl);color:var(--primary);padding:3px 10px;border-radius:99px;">Lv.1 Beginner</div>
+      <div id="level-badge" style="font-size:11px;font-weight:700;background:var(--pl);color:var(--primary);padding:3px 10px;border-radius:99px;">Lv.1 Beginner</div>
     </div>
     <div class="sgrid">
       <div class="scard"><div class="snum" id="s-streak">0</div><div class="slbl">연속 학습일</div></div>
-      <div class="scard"><div class="snum" id="s-words">0</div><div class="slbl">배운 단어</div></div>
+      <div class="scard"><div class="snum" id="s-days">0</div><div class="slbl">총 학습일</div></div>
       <div class="scard"><div class="snum" id="s-score">—</div><div class="slbl">퀴즈 평균</div></div>
     </div>
     <div class="stitle" style="margin-top:20px;">이번 주 출석</div>
     <div class="calrow" id="week-cal"></div>
-    <div class="stitle" style="margin-top:20px;">목표 타임라인</div>
+    <div class="stitle" style="margin-top:20px;">6개월 목표</div>
     <div style="margin:0 16px;background:var(--card);border-radius:var(--r);border:1px solid var(--border);overflow:hidden;">
       <div style="padding:12px 14px;border-bottom:1px solid var(--border);display:flex;gap:10px;">
-        <div style="min-width:48px;font-size:11px;font-weight:700;color:var(--primary);background:var(--pl);border-radius:99px;padding:2px 0;text-align:center;height:fit-content;">1개월</div>
-        <div><div style="font-size:13px;font-weight:700;margin-bottom:2px;">여행 영어 완성</div><div style="font-size:12px;color:var(--muted);line-height:1.6;">단어 150개·패턴 30개. 주문·길묻기 자연스럽게. 파파고 덜 쓰게 돼요.</div></div>
+        <div style="min-width:52px;font-size:11px;font-weight:700;color:var(--primary);background:var(--pl);border-radius:99px;padding:2px 0;text-align:center;flex-shrink:0;">1개월</div>
+        <div><div style="font-size:13px;font-weight:700;margin-bottom:2px;">여행 영어 완성</div><div style="font-size:12px;color:var(--muted);line-height:1.6;">단어 150개·패턴 30개. 주문·길묻기 자연스럽게.</div></div>
       </div>
       <div style="padding:12px 14px;border-bottom:1px solid var(--border);display:flex;gap:10px;">
-        <div style="min-width:48px;font-size:11px;font-weight:700;color:var(--ok);background:var(--okl);border-radius:99px;padding:2px 0;text-align:center;height:fit-content;">3개월</div>
-        <div><div style="font-size:13px;font-weight:700;margin-bottom:2px;">의사소통 가능</div><div style="font-size:12px;color:var(--muted);line-height:1.6;">단어 400개. 천천히 말하면 60~70% 이해. "블라블라"가 단어 단위로 들려요!</div></div>
+        <div style="min-width:52px;font-size:11px;font-weight:700;color:var(--ok);background:var(--okl);border-radius:99px;padding:2px 0;text-align:center;flex-shrink:0;">3개월</div>
+        <div><div style="font-size:13px;font-weight:700;margin-bottom:2px;">의사소통 가능</div><div style="font-size:12px;color:var(--muted);line-height:1.6;">단어 400개. 천천히 말하면 60~70% 이해.</div></div>
       </div>
       <div style="padding:12px 14px;display:flex;gap:10px;">
-        <div style="min-width:48px;font-size:11px;font-weight:700;color:var(--warn);background:var(--warnl);border-radius:99px;padding:2px 0;text-align:center;height:fit-content;">6개월</div>
-        <div><div style="font-size:13px;font-weight:700;margin-bottom:2px;">일상 회화 가능</div><div style="font-size:12px;color:var(--muted);line-height:1.6;">대화가 이어져요. 드라마 자막 없이 30~40% 이해 가능!</div></div>
+        <div style="min-width:52px;font-size:11px;font-weight:700;color:var(--warn);background:var(--warnl);border-radius:99px;padding:2px 0;text-align:center;flex-shrink:0;">6개월</div>
+        <div><div style="font-size:13px;font-weight:700;margin-bottom:2px;">일상 회화 가능</div><div style="font-size:12px;color:var(--muted);line-height:1.6;">대화가 이어져요. 드라마 자막 없이 30~40% 이해!</div></div>
       </div>
     </div>
-    <div style="margin:8px 16px 0;background:var(--bg);border-radius:var(--rs);padding:9px 12px;">
-      <p style="font-size:12px;color:var(--muted);line-height:1.6;">💡 핵심은 <strong>매일</strong>이에요. 하루 30분 매일 > 3시간 주말 몰아치기.</p>
-    </div>
-    <div class="stitle" style="margin-top:20px;">30일 레벨 테스트</div>
-    <div style="margin:0 16px 0;background:var(--pl);border-radius:var(--r);padding:14px;display:flex;gap:14px;align-items:center;">
-      <div style="font-size:32px;">🏆</div>
-      <div><div style="font-size:14px;font-weight:700;color:var(--primary);margin-bottom:3px;">30일 완료 시 레벨 테스트 오픈!</div>
-      <div style="font-size:12px;color:var(--muted);" id="test-prog">현재 0일 완료 · 30일 남음</div></div>
-    </div>
+    <div class="stitle" style="margin-top:20px;">6개월 커리큘럼</div>
+    <div style="margin:0 16px;background:var(--card);border-radius:var(--r);border:1px solid var(--border);overflow:hidden;" id="curriculum-list"></div>
     <div style="height:8px;"></div>
   </div>
 
@@ -376,13 +231,10 @@
     </div>
     <div class="stitle">습관 꿀팁</div>
     <div class="rcard">
-      <div class="rrow"><div class="rtime">⏰</div><div><div class="rtitle">매일 같은 시간에</div><div class="rdesc">아침 커피, 자기 전 — 언제든 OK. 30일 지나면 안 하면 어색해요.</div></div></div>
+      <div class="rrow"><div class="rtime">⏰</div><div><div class="rtitle">매일 같은 시간에</div><div class="rdesc">아침 커피, 자기 전 — 30일 지나면 안 하면 어색해요.</div></div></div>
       <div class="rrow"><div class="rtime">📱</div><div><div class="rtitle">일상에서 써먹기</div><div class="rdesc">카톡에 "나 진짜 tired하다..." 섞어 써도 효과 있어요!</div></div></div>
       <div class="rrow"><div class="rtime">👨‍👩‍👧</div><div><div class="rtitle">가족이랑 공유</div><div class="rdesc">오늘 배운 표현 하나씩 알려줘요. 말하면 3배 기억!</div></div></div>
-    </div>
-    <div style="margin:8px 16px 0;background:var(--pl);border-radius:var(--r);padding:14px;">
-      <div style="font-size:13px;font-weight:700;color:var(--primary);margin-bottom:4px;">EASY DAY 베타 목표</div>
-      <div style="font-size:12px;color:var(--muted);line-height:1.7;">1개월 → 여행 영어 완성<br>3개월 → 의사소통 가능<br>6개월 → 일상 회화 OK</div>
+      <div class="rrow"><div class="rtime">⏩</div><div><div class="rtitle">땡겨 학습 OK</div><div class="rdesc">의지 있는 날엔 내일 치 미리 해도 돼요. 진도는 자동 저장!</div></div></div>
     </div>
     <div style="height:8px;"></div>
   </div>
@@ -398,399 +250,693 @@
 <script>
 // ── Storage ──
 const S={
-  get:k=>{try{return JSON.parse(localStorage.getItem('ed_'+k));}catch(e){return null;}},
-  set:(k,v)=>{try{localStorage.setItem('ed_'+k,JSON.stringify(v));}catch(e){}}
+  get:k=>{try{return JSON.parse(localStorage.getItem('ed2_'+k));}catch(e){return null;}},
+  set:(k,v)=>{try{localStorage.setItem('ed2_'+k,JSON.stringify(v));}catch(e){}}
 };
-const today=new Date().toISOString().slice(0,10);
-let state=S.get('state')||{streak:0,lastDate:null,totalDays:0,words:0,scores:[],completedDates:[]};
-let sessionDone=new Set(S.get('sess_'+today)||[]);
-let quizIdx=0,quizScore=0,wStep=0,wTask=0;
 
-// streak
+// ── 6-Month Curriculum ──
+const CURRICULUM = [
+  // Month 1 — 기초
+  {week:1, month:1, theme:'감정 & 상태 표현', keywords:'감정, 기분, 상태'},
+  {week:2, month:1, theme:'일상 동작 & 루틴', keywords:'일어나다, 먹다, 자다, 일하다'},
+  {week:3, month:1, theme:'장소 & 이동', keywords:'식당, 카페, 대중교통, 길 묻기'},
+  {week:4, month:1, theme:'관계 & 소통', keywords:'가족, 친구, 소개, 인사'},
+  // Month 2 — 자연스러운 표현
+  {week:5, month:2, theme:'쇼핑 & 주문', keywords:'가격, 사이즈, 주문, 환불'},
+  {week:6, month:2, theme:'날씨 & 계절', keywords:'날씨, 계절, 옷차림'},
+  {week:7, month:2, theme:'건강 & 몸', keywords:'아프다, 병원, 증상, 약'},
+  {week:8, month:2, theme:'여행 & 숙소', keywords:'호텔, 체크인, 관광, 항공'},
+  // Month 3 — 원어민 속도 적응
+  {week:9, month:3, theme:'감정 심화 & 슬랭', keywords:'슬랭, 구어체, 감탄사'},
+  {week:10, month:3, theme:'의견 & 토론', keywords:'생각, 동의, 반대, 제안'},
+  {week:11, month:3, theme:'전화 & 메시지', keywords:'전화, 문자, SNS, 이메일'},
+  {week:12, month:3, theme:'음식 & 맛', keywords:'맛, 조리법, 레스토랑, 식재료'},
+  // Month 4 — 비즈니스/일상 심화
+  {week:13, month:4, theme:'직장 & 업무', keywords:'회의, 프로젝트, 동료, 보고'},
+  {week:14, month:4, theme:'취미 & 여가', keywords:'운동, 음악, 독서, 영화'},
+  {week:15, month:4, theme:'미래 계획 & 꿈', keywords:'계획, 목표, 희망, 미래'},
+  {week:16, month:4, theme:'교육 & 배움', keywords:'공부, 학교, 온라인학습, 자격증'},
+  // Month 5 — 드라마/영화 표현
+  {week:17, month:5, theme:'드라마 필수 표현', keywords:'사랑, 갈등, 화해, 감동'},
+  {week:18, month:5, theme:'유머 & 농담', keywords:'유머, 농담, 웃음, 반어'},
+  {week:19, month:5, theme:'뉴스 & 시사', keywords:'정치, 경제, 사회, 환경'},
+  {week:20, month:5, theme:'소셜미디어 영어', keywords:'인스타, 유튜브, 댓글, 트렌드'},
+  // Month 6 — 자유 회화 완성
+  {week:21, month:6, theme:'스몰토크 마스터', keywords:'날씨, 주말, 취미, 가볍게'},
+  {week:22, month:6, theme:'감사 & 사과 표현', keywords:'감사, 사과, 칭찬, 격려'},
+  {week:23, month:6, theme:'협상 & 설득', keywords:'제안, 협상, 설득, 거절'},
+  {week:24, month:6, theme:'자유 회화 완성', keywords:'종합, 자연스러운 대화, 실전'},
+];
+
+const MONTH_NAMES = {
+  1:'기초 체력 만들기', 2:'자연스러운 표현', 3:'원어민 속도 적응',
+  4:'비즈니스/일상 심화', 5:'드라마/영화 표현', 6:'자유 회화 완성'
+};
+
+// ── State ──
+const today = new Date().toISOString().slice(0,10);
+let state = S.get('state') || {
+  streak:0, lastDate:null, totalDays:0, scores:[], completedDates:[],
+  startDate: today, currentDay: 1
+};
+if(!state.startDate) state.startDate = today;
+if(!state.completedDates) state.completedDates = [];
+
+// Update streak
 (()=>{
-  const last=state.lastDate;
-  const yesterday=new Date(Date.now()-86400000).toISOString().slice(0,10);
-  if(last===today)return;
-  state.streak=(last===yesterday)?state.streak+1:1;
-  state.lastDate=today;
-  if(!state.completedDates)state.completedDates=[];
-  S.set('state',state);
+  const last = state.lastDate;
+  const yesterday = new Date(Date.now()-86400000).toISOString().slice(0,10);
+  if(last === today) return;
+  state.streak = (last === yesterday) ? state.streak + 1 : 1;
+  state.lastDate = today;
+  S.set('state', state);
 })();
 
-function saveState(){S.set('state',state);}
-function saveSession(){S.set('sess_'+today,[...sessionDone]);}
-
-// ── Data ──
-const words=[
-  {en:'hungry',ipa:'/ˈhʌŋ.ɡri/',kor:'헝그리',ko:'배고픈',ex:'I\'m so hungry right now.',exko:'나 지금 너무 배고파.'},
-  {en:'tired', ipa:'/ˈtaɪ.ərd/',kor:'타이어드',ko:'피곤한',ex:'You look tired. Get some rest.',exko:'피곤해 보여. 좀 쉬어.'},
-  {en:'excited',ipa:'/ɪkˈsaɪ.tɪd/',kor:'익싸이티드',ko:'신난, 설레는',ex:'She was so excited about the trip.',exko:'그녀는 여행에 대해 너무 설렜어.'},
-  {en:'amazing',ipa:'/əˈmeɪ.zɪŋ/',kor:'어메이징',ko:'놀라운, 대단한',ex:'The food here is amazing!',exko:'여기 음식 완전 대박이야!'},
-  {en:'bother', ipa:'/ˈbɒð.ər/',kor:'바더',ko:'신경 쓰이게 하다',ex:'Does the noise bother you?',exko:'소음이 신경 쓰여?'}
-];
-const phrases=[
-  {en:'I feel like...',ko:'~하고 싶어 / ~한 느낌이야',when:'기분·욕구 표현할 때',ex:'I feel like eating something sweet.',exko:'뭔가 달콤한 거 먹고 싶어.'},
-  {en:'I\'m not in the mood for...',ko:'~할 기분이 아니야',when:'정중하게 거절할 때',ex:'I\'m not in the mood for going out tonight.',exko:'오늘 밤은 외출할 기분이 아니야.'},
-  {en:'By the way,',ko:'그런데 / 참고로',when:'화제를 바꿀 때',ex:'By the way, did you eat yet?',exko:'그런데, 밥 먹었어?'},
-  {en:'I had no idea!',ko:'전혀 몰랐어!',when:'놀라움 표현',ex:'I had no idea you could cook this well!',exko:'네가 요리를 이렇게 잘하는 줄 몰랐어!'}
-];
-const listens=[
-  {phrase:'Wanna grab some food?',ipa:'/ˈwɒnə ɡræb səm fuːd/',kor:'워나 그랩 썸 푸드',ko:'뭐 좀 먹으러 갈래?',tip:'wanna = want to. 원어민은 want to를 거의 안 써요!'},
-  {phrase:'I\'m gonna head out.',ipa:'/aɪm ˈɡɒnə hɛd aʊt/',kor:'아임 가나 헤드 아웃',ko:'나 이제 나갈게.',tip:'gonna = going to. 빠르게 말하면 아임가나헤다웃처럼 들려요.'},
-  {phrase:'Let me know!',ipa:'/lɛt mi noʊ/',kor:'렛 미 노우',ko:'알려줘!',tip:'빠르게 말하면 렛미노우 처럼 붙어서 들려요. 연음의 마법!'}
-];
-const quizzes=[
-  {q:"'I'm so hungry'의 뜻은?",opts:['나 너무 행복해','나 너무 배고파','나 너무 화나','나 너무 피곤해'],ans:1,exp:"hungry = 배고픈. 'I'm starving!'은 더 강조!"},
-  {q:"'By the way'를 쓰는 상황은?",opts:['화가 났을 때','자려 할 때','화제를 바꿀 때','거절할 때'],ans:2,exp:'By the way = 그런데 — 새 주제로 넘어갈 때!'},
-  {q:"'gonna'는 원래 무슨 말?",opts:['go now','going to','got a','그대로'],ans:1,exp:'gonna = going to의 구어체. 원어민이 항상 써요!'}
-];
-const slangs=[
-  {slang:'I\'m dead 💀',meaning:'너무 웃겨서 죽겠어',ex:'That joke is so funny — I\'m dead!',ctx:'친구들이랑 웃길 때'},
-  {slang:'Ghosted me 👻',meaning:'연락을 갑자기 끊어버렸어',ex:'He just ghosted me after our date.',ctx:'연락 두절될 때'}
-];
-const wLevels=[
-  {step:'Step 1',label:'패턴 채워넣기',desc:'오늘 배운 패턴에 단어만 넣으면 돼요!',tasks:[
-    {pattern:'I feel like ___.', hint:'먹고 싶은 것, 하고 싶은 것!',ex:'I feel like sleeping all day.',exko:'나 오늘 하루 종일 자고 싶어.'},
-    {pattern:'I\'m not in the mood for ___.',hint:'하기 싫은 것을 넣어봐요',ex:'I\'m not in the mood for cooking.',exko:'요리할 기분이 아니야.'}
-  ]},
-  {step:'Step 2',label:'한 문장 써보기',desc:'주제 보고 자유롭게 한 문장. 틀려도 OK!',tasks:[
-    {prompt:'지금 기분이 어때요? 한 문장으로!',ex:'I feel a little tired but happy.',exko:'조금 피곤하지만 행복해.'},
-    {prompt:'오늘 뭐 먹고 싶어요?',ex:'I want to eat something spicy.',exko:'매운 거 먹고 싶어.'}
-  ]},
-  {step:'Step 3',label:'나의 하루 2~3문장',desc:'오늘 배운 단어 하나 이상 꼭 넣어서!',tasks:[
-    {prompt:'오늘 하루를 2~3문장으로. hungry·tired·excited·amazing·bother 중 하나 이상!',ex:'I was so tired today. But the dinner was amazing. I feel like watching a movie now.',exko:'오늘 정말 피곤했어. 그런데 저녁이 대박이었어. 영화 보고 싶어.'}
-  ]}
-];
-
-// ── Speech ──
-function speak(t,r){
-  const u=new SpeechSynthesisUtterance(t);
-  u.lang='en-US';u.rate=parseFloat(r)||0.82;
-  speechSynthesis.cancel();speechSynthesis.speak(u);
+// ── Current viewing day ──
+// Calculate actual day number based on start date
+function getDayNum(dateStr) {
+  const start = new Date(state.startDate);
+  const d = new Date(dateStr);
+  return Math.floor((d - start) / 86400000) + 1;
 }
-document.addEventListener('click',function(e){
-  const btn=e.target.closest('[data-speak]');
-  if(!btn)return;
-  e.stopPropagation();
-  speak(btn.dataset.speak, btn.dataset.rate||0.82);
-});
-function sb(txt,rate){return `data-speak="${txt.replace(/"/g,'&quot;')}" data-rate="${rate||0.82}"`;}
+const todayDayNum = getDayNum(today);
+let viewingDay = todayDayNum; // can change when user navigates
 
-// ── Build panels ──
-function buildWords(){
-  document.getElementById('word-content').innerHTML=words.map(w=>`
+// ── Curriculum helper ──
+function getCurriculumForDay(dayNum) {
+  const weekNum = Math.ceil(dayNum / 7);
+  const idx = Math.min(weekNum - 1, CURRICULUM.length - 1);
+  return CURRICULUM[idx];
+}
+
+function getDayDate(dayNum) {
+  const start = new Date(state.startDate);
+  const d = new Date(start);
+  d.setDate(start.getDate() + dayNum - 1);
+  return d.toISOString().slice(0,10);
+}
+
+// ── Content cache ──
+function getCachedContent(dayNum) {
+  return S.get('day_'+dayNum);
+}
+function setCachedContent(dayNum, data) {
+  S.set('day_'+dayNum, data);
+}
+
+// ── AI Content Generation ──
+async function generateDayContent(dayNum) {
+  const cur = getCurriculumForDay(dayNum);
+  const level = dayNum <= 30 ? '완전 초보 (A1)' : dayNum <= 60 ? '초급 (A2)' : dayNum <= 90 ? '초중급 (A2+)' : dayNum <= 120 ? '중급 시작 (B1-)' : '중급 (B1)';
+  
+  const prompt = `영어 학습 앱 EASY DAY의 Day ${dayNum} 콘텐츠를 생성해주세요.
+
+테마: ${cur.theme}
+키워드: ${cur.keywords}
+학습자 레벨: ${level}
+Month ${cur.month}: ${MONTH_NAMES[cur.month]}
+
+반드시 아래 JSON 형식으로만 응답하세요. 다른 텍스트 없이 JSON만:
+{
+  "words": [
+    {"en":"단어","ipa":"/발음기호/","kor":"한글발음(예:헝그리)","ko":"뜻","ex":"예문 영어","exko":"예문 한국어"},
+    {"en":"단어","ipa":"/발음기호/","kor":"한글발음","ko":"뜻","ex":"예문 영어","exko":"예문 한국어"},
+    {"en":"단어","ipa":"/발음기호/","kor":"한글발음","ko":"뜻","ex":"예문 영어","exko":"예문 한국어"},
+    {"en":"단어","ipa":"/발음기호/","kor":"한글발음","ko":"뜻","ex":"예문 영어","exko":"예문 한국어"},
+    {"en":"단어","ipa":"/발음기호/","kor":"한글발음","ko":"뜻","ex":"예문 영어","exko":"예문 한국어"}
+  ],
+  "phrases": [
+    {"en":"패턴...","ko":"한국어 뜻","when":"언제 쓰는지","ex":"예문","exko":"예문 한국어 해석"},
+    {"en":"패턴","ko":"한국어 뜻","when":"언제 쓰는지","ex":"예문","exko":"예문 한국어 해석"},
+    {"en":"패턴","ko":"한국어 뜻","when":"언제 쓰는지","ex":"예문","exko":"예문 한국어 해석"}
+  ],
+  "listens": [
+    {"phrase":"원어민 표현","ipa":"/발음기호/","kor":"한글발음","ko":"뜻","tip":"연음/축약 설명"},
+    {"phrase":"원어민 표현","ipa":"/발음기호/","kor":"한글발음","ko":"뜻","tip":"연음/축약 설명"},
+    {"phrase":"원어민 표현","ipa":"/발음기호/","kor":"한글발음","ko":"뜻","tip":"연음/축약 설명"}
+  ],
+  "quizzes": [
+    {"q":"문제","opts":["보기1","보기2","보기3","보기4"],"ans":정답인덱스(0~3),"exp":"해설"},
+    {"q":"문제","opts":["보기1","보기2","보기3","보기4"],"ans":정답인덱스(0~3),"exp":"해설"},
+    {"q":"문제","opts":["보기1","보기2","보기3","보기4"],"ans":정답인덱스(0~3),"exp":"해설"}
+  ],
+  "slangs": [
+    {"slang":"슬랭 표현","meaning":"한국어 뜻","ex":"예문","ctx":"어떤 상황에서"},
+    {"slang":"슬랭 표현","meaning":"한국어 뜻","ex":"예문","ctx":"어떤 상황에서"}
+  ],
+  "story": {
+    "text":"영어 미니 스토리 3~4문장",
+    "translation":"한국어 해석",
+    "grammar":"문법 포인트 설명"
+  },
+  "writingPrompt": "오늘 배운 내용과 관련된 작문 주제 (한국어로)"
+}
+
+규칙:
+- 단어는 테마에 맞는 실용적인 단어
+- 예문은 일상에서 실제로 쓰는 자연스러운 문장
+- 퀴즈는 오늘 배운 단어/표현에서 출제
+- 레벨에 맞는 난이도 유지`;
+
+  const res = await fetch('https://api.anthropic.com/v1/messages', {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify({
+      model: 'claude-sonnet-4-6',
+      max_tokens: 2000,
+      messages: [{role: 'user', content: prompt}]
+    })
+  });
+  const data = await res.json();
+  const text = data.content[0].text.replace(/```json|```/g,'').trim();
+  return JSON.parse(text);
+}
+
+// ── Speak ──
+function speak(t, r) {
+  const u = new SpeechSynthesisUtterance(t);
+  u.lang = 'en-US'; u.rate = parseFloat(r) || 0.82;
+  speechSynthesis.cancel(); speechSynthesis.speak(u);
+}
+document.addEventListener('click', function(e) {
+  const btn = e.target.closest('[data-speak]');
+  if(!btn) return;
+  e.stopPropagation();
+  speak(btn.dataset.speak, btn.dataset.rate || 0.82);
+});
+
+// ── Quiz state ──
+let quizIdx = 0, quizScore = 0, currentContent = null;
+let wStep = 0, wTask = 0;
+
+// ── Render home for a day ──
+async function renderHome(dayNum) {
+  const homeEl = document.getElementById('home-content');
+  const cur = getCurriculumForDay(dayNum);
+  const dateStr = getDayDate(dayNum);
+  const isToday = dateStr === today;
+  const isFuture = dateStr > today;
+  const sessionKey = 'sess_'+dayNum;
+  let sessionDone = new Set(S.get(sessionKey) || []);
+
+  // Day navigation
+  const navHTML = `
+    <div class="day-nav">
+      ${dayNum > 1 ? `<button class="day-nav-btn" onclick="renderHome(${dayNum-1})">← Day ${dayNum-1}</button>` : '<div></div>'}
+      <div class="day-nav-info">${isToday ? '오늘' : isFuture ? '미리 학습' : '복습'}</div>
+      <button class="day-nav-btn primary" onclick="renderHome(${dayNum+1})">Day ${dayNum+1} →</button>
+    </div>`;
+
+  // Progress bar
+  const coreOrder = ['word','phrase','listen','quiz'];
+  const doneCnt = coreOrder.filter(m => sessionDone.has(m)).length;
+  const pct = Math.round(doneCnt / coreOrder.length * 100);
+  const dotsHTML = ['word','phrase','listen','quiz'].map((m,i) => {
+    const isDone = sessionDone.has(m);
+    const isNext = !isDone && (i===0 || sessionDone.has(coreOrder[i-1]));
+    const cls = isDone ? 'md-done' : isNext ? 'md-active' : 'md-todo';
+    const labels = {word:'📚 단어', phrase:'💬 회화', listen:'🎧 발음', quiz:'✅ 퀴즈'};
+    return `<span class="mdot ${cls}" id="dot-${m}">${labels[m]}</span>`;
+  }).join('');
+
+  const progressHTML = `
+    <div class="dbar">
+      <div class="dmeta">
+        <span class="dlabel">Month ${cur.month} · ${cur.theme}</span>
+        <span class="dday">Day ${dayNum}</span>
+      </div>
+      <div class="ptrack"><div class="pfill" id="pfill" style="width:${pct}%"></div></div>
+      <div class="mdots">${dotsHTML}</div>
+    </div>`;
+
+  // Check cache
+  let content = getCachedContent(dayNum);
+
+  if (!content) {
+    // Show loading
+    homeEl.innerHTML = navHTML + progressHTML + `
+      <div class="loading-screen">
+        <div class="spinner"></div>
+        <div class="loading-title">Day ${dayNum} 콘텐츠 준비 중...</div>
+        <div class="loading-sub">AI가 오늘의 학습을 만들고 있어요<br>${cur.theme} 테마로 준비할게요!</div>
+        <div class="load-steps">
+          <div class="load-step active" id="ls1">📚 단어 & 예문 생성 중...</div>
+          <div class="load-step" id="ls2">💬 회화 패턴 생성 중...</div>
+          <div class="load-step" id="ls3">✅ 퀴즈 생성 중...</div>
+        </div>
+      </div>`;
+
+    try {
+      setTimeout(()=>{
+        const l1=document.getElementById('ls1'); const l2=document.getElementById('ls2');
+        if(l1){l1.classList.add('done');l1.textContent='✓ 단어 완료';}
+        if(l2){l2.classList.add('active');}
+      }, 1500);
+      setTimeout(()=>{
+        const l2=document.getElementById('ls2'); const l3=document.getElementById('ls3');
+        if(l2){l2.classList.add('done');l2.textContent='✓ 회화 완료';}
+        if(l3){l3.classList.add('active');}
+      }, 3000);
+
+      content = await generateDayContent(dayNum);
+      setCachedContent(dayNum, content);
+    } catch(e) {
+      homeEl.innerHTML = navHTML + progressHTML + `
+        <div class="loading-screen">
+          <div style="font-size:36px;">😢</div>
+          <div class="loading-title">콘텐츠 생성 실패</div>
+          <div class="loading-sub">인터넷 연결을 확인하고 다시 시도해주세요</div>
+          <button class="btn" style="max-width:200px;margin-top:8px;" onclick="renderHome(${dayNum})">다시 시도</button>
+        </div>`;
+      return;
+    }
+  }
+
+  currentContent = content;
+  quizIdx = 0; quizScore = 0; wStep = 0; wTask = 0;
+
+  function modHTML(id, ico, bg, name, desc, badge, badgeCls, bodyHTML, isLocked, isDone) {
+    const locked = isLocked ? 'locked' : '';
+    const done = isDone ? 'done' : '';
+    const badgeText = isDone ? '완료 ✓' : badge;
+    const badgeClass = isDone ? 'mb-done' : badgeCls;
+    return `
+      <div class="mod ${locked} ${done}" id="mod-${id}">
+        <div class="mod-hdr" onclick="toggleMod('${id}')">
+          <div class="mod-ico" style="background:${bg}">${ico}</div>
+          <div class="mod-meta"><div class="mod-name">${name}</div><div class="mod-desc">${desc}</div></div>
+          <span class="mbadge ${badgeClass}" id="badge-${id}">${badgeText}</span>
+          <span class="chevron">▼</span>
+        </div>
+        <div class="mod-body">${bodyHTML}</div>
+      </div>`;
+  }
+
+  // Words
+  const wordsHTML = content.words.map(w => `
     <div class="card">
       <div class="wen">${w.en}</div>
       <div class="wipa">${w.ipa}</div>
-      <div class="wkor-pron">🔊 ${w.kor}</div>
+      <div class="wkor">🔊 ${w.kor}</div>
       <div class="wko">${w.ko}</div>
       <div class="wex">"${w.ex}"</div>
       <div class="wexko">${w.exko}</div>
       <div class="arow">
-        <button class="abtn" ${sb(w.en,0.82)}>▶ 단어</button>
-        <button class="abtn s" ${sb(w.ex,0.78)}>▶ 예문</button>
+        <button class="abtn" data-speak="${w.en}" data-rate="0.82">▶ 단어</button>
+        <button class="abtn s" data-speak="${w.ex}" data-rate="0.78">▶ 예문</button>
       </div>
-    </div>`).join('');
-}
+    </div>`).join('') + `<button class="btn" onclick="completeMod('word',${dayNum})">완료 — 다음으로 ✓</button>`;
 
-function buildPhrases(){
-  document.getElementById('phrase-content').innerHTML=phrases.map(p=>`
+  // Phrases
+  const phrasesHTML = content.phrases.map(p => `
     <div class="card">
-      <div class="phr-en">${p.en}</div>
-      <div class="phr-ko">${p.ko}</div>
-      <div class="phr-when">📌 ${p.when}</div>
-      <div class="phr-ex">"${p.ex}"</div>
-      <div class="phr-exko">${p.exko}</div>
+      <div style="font-size:17px;font-weight:700;margin-bottom:3px;">${p.en}</div>
+      <div style="font-size:13px;color:var(--primary);font-weight:600;margin-bottom:6px;">${p.ko}</div>
+      <div style="font-size:11px;color:var(--muted);background:var(--bg);border-radius:var(--rs);padding:5px 9px;margin-bottom:8px;">📌 ${p.when}</div>
+      <div class="wex">"${p.ex}"</div>
+      <div class="wexko">${p.exko}</div>
       <div class="arow">
-        <button class="abtn" ${sb(p.en.replace(/\.\.\.$/,''),0.82)}>▶ 패턴</button>
-        <button class="abtn s" ${sb(p.ex,0.78)}>▶ 예문</button>
+        <button class="abtn" data-speak="${p.en.replace(/\.\.\./g,'')}" data-rate="0.82">▶ 패턴</button>
+        <button class="abtn s" data-speak="${p.ex}" data-rate="0.78">▶ 예문</button>
       </div>
-    </div>`).join('');
-}
+    </div>`).join('') + `<button class="btn" onclick="completeMod('phrase',${dayNum})">완료 ✓</button>`;
 
-function buildListens(){
-  document.getElementById('listen-content').innerHTML=listens.map(l=>`
+  // Listens
+  const listensHTML = content.listens.map(l => `
     <div class="card">
-      <div class="lst-phrase">"${l.phrase}"</div>
-      <div class="lst-ipa">${l.ipa}</div>
-      <div class="lst-kor">🔊 ${l.kor}</div>
-      <div class="lst-ko">${l.ko}</div>
+      <div style="font-size:18px;font-weight:700;margin-bottom:4px;">"${l.phrase}"</div>
+      <div style="font-size:13px;color:var(--muted);font-style:italic;margin-bottom:2px;">${l.ipa}</div>
+      <div style="font-size:12px;color:var(--warn);font-weight:600;margin-bottom:4px;">🔊 ${l.kor}</div>
+      <div style="font-size:13px;color:var(--primary);font-weight:600;margin-bottom:12px;">${l.ko}</div>
       <div class="arow">
-        <button class="abtn" ${sb(l.phrase,0.78)}>▶ 천천히</button>
-        <button class="abtn s" ${sb(l.phrase,1.0)}>▶ 원속도</button>
+        <button class="abtn" data-speak="${l.phrase}" data-rate="0.78">▶ 천천히</button>
+        <button class="abtn s" data-speak="${l.phrase}" data-rate="1.0">▶ 원속도</button>
       </div>
-      <div class="lst-tip">💡 ${l.tip}</div>
-    </div>`).join('');
-}
+      <div style="font-size:12px;color:var(--muted);background:var(--warnl);border-radius:var(--rs);padding:7px 10px;margin-top:9px;">💡 ${l.tip}</div>
+    </div>`).join('') + `<button class="btn" onclick="completeMod('listen',${dayNum})">완료 ✓</button>`;
 
-function buildQuiz(){quizIdx=0;quizScore=0;renderQuiz();}
-function renderQuiz(){
-  if(quizIdx>=quizzes.length){
-    const pct=Math.round(quizScore/quizzes.length*100);
-    state.scores=state.scores||[];state.scores.push(pct);
-    if(state.scores.length>30)state.scores=state.scores.slice(-30);
-    saveState();renderStats();
-    document.getElementById('quiz-content').innerHTML=`
-      <div class="qcard" style="text-align:center;">
-        <div style="font-size:38px;margin-bottom:10px;">${pct>=70?'🎉':'💪'}</div>
-        <div style="font-size:20px;font-weight:800;margin-bottom:5px;">${pct}% 정답!</div>
-        <div style="font-size:13px;color:var(--muted);margin-bottom:14px;">${quizScore}/${quizzes.length} 맞혔어요</div>
-        <button class="btn" onclick="completeMod('quiz')">오늘 학습 완료 ✓</button>
-      </div>`;return;
-  }
-  const q=quizzes[quizIdx];
-  document.getElementById('quiz-content').innerHTML=`
-    <div class="qcard">
-      <div style="font-size:11px;color:var(--muted);margin-bottom:7px;">문제 ${quizIdx+1} / ${quizzes.length}</div>
-      <div class="qq">${q.q}</div>
-      <div class="qopts">${q.opts.map((o,i)=>`<button class="qbtn" id="qb${i}" onclick="answerQuiz(${i})">${o}</button>`).join('')}</div>
-      <div id="qfb"></div>
-    </div>`;
-}
-function answerQuiz(i){
-  const q=quizzes[quizIdx];
-  document.querySelectorAll('.qbtn').forEach(b=>b.disabled=true);
-  if(i===q.ans){document.getElementById('qb'+i).classList.add('ok');document.getElementById('qfb').innerHTML=`<div class="qfb ok">✓ 정답! ${q.exp}</div>`;quizScore++;}
-  else{document.getElementById('qb'+i).classList.add('no');document.getElementById('qb'+q.ans).classList.add('ok');document.getElementById('qfb').innerHTML=`<div class="qfb no">오답 — ${q.exp}</div>`;}
-  setTimeout(()=>{quizIdx++;renderQuiz();},2000);
-}
+  // Quiz
+  const quizHTML = `<div id="quiz-content"></div>`;
 
-function buildSlangs(){
-  document.getElementById('slang-content').innerHTML=slangs.map(s=>`
+  // Slangs
+  const slangHTML = content.slangs.map(s => `
     <div class="card">
       <div class="wen">${s.slang}</div>
       <div class="wko">${s.meaning}</div>
       <div class="wex">"${s.ex}"</div>
       <div class="wexko">상황: ${s.ctx}</div>
-      <div class="arow"><button class="abtn" ${sb(s.ex,0.82)}>▶ 예문 듣기</button></div>
+      <div class="arow"><button class="abtn" data-speak="${s.ex}" data-rate="0.82">▶ 예문 듣기</button></div>
     </div>`).join('');
+
+  // Story
+  const storyHTML = `
+    <div class="card">
+      <div style="background:var(--warnl);border-radius:var(--rs);padding:7px 10px;margin-bottom:12px;font-size:12px;color:var(--warn);font-weight:600;">📖 먼저 혼자 읽어보세요! 다 읽고 나서 해석 버튼!</div>
+      <p style="font-size:15px;line-height:1.9;margin-bottom:14px;font-style:italic;">"${content.story.text}"</p>
+      <div class="arow" style="margin-bottom:12px;">
+        <button class="abtn" data-speak="${content.story.text}" data-rate="0.82">▶ 천천히</button>
+        <button class="abtn s" data-speak="${content.story.text}" data-rate="1.0">▶ 원속도</button>
+      </div>
+      <button onclick="document.getElementById('story-trans').style.display='block';this.style.display='none';"
+        style="width:100%;padding:9px;border-radius:var(--rs);border:1px dashed var(--border);background:var(--bg);color:var(--muted);cursor:pointer;font-size:13px;font-weight:600;margin-bottom:10px;font-family:inherit;touch-action:manipulation;">
+        👀 해석 보기
+      </button>
+      <div id="story-trans" style="display:none;">
+        <p style="font-size:13px;color:var(--muted);margin-bottom:5px;font-weight:600;">해석</p>
+        <p style="font-size:13px;line-height:1.8;margin-bottom:12px;">${content.story.translation}</p>
+        <div style="background:var(--pl);border-radius:var(--rs);padding:9px 11px;">
+          <p style="font-size:12px;font-weight:700;color:var(--primary);margin-bottom:3px;">문법 포인트</p>
+          <p style="font-size:12px;">${content.story.grammar}</p>
+        </div>
+      </div>
+    </div>`;
+
+  // Writing
+  const writingHTML = `<div id="writing-content-area"></div>`;
+
+  // Determine lock states
+  const isW = (m) => sessionDone.has(m);
+  const isLocked = (m) => {
+    const idx = ['word','phrase','listen','quiz'].indexOf(m);
+    if(idx === 0) return false;
+    return !sessionDone.has(['word','phrase','listen','quiz'][idx-1]);
+  };
+
+  homeEl.innerHTML = navHTML + progressHTML + `
+    <div class="stitle">필수 과정 (30분)</div>
+    ${modHTML('word','📚','#EEF0FF','오늘의 단어 5개',`${cur.theme} 핵심 단어`,'필수','mb-core', wordsHTML, false, isW('word'))}
+    ${modHTML('phrase','💬','#E1F5EE','오늘의 회화 패턴','고빈도 문장 틀 · 무한 확장','필수','mb-core', phrasesHTML, isLocked('phrase'), isW('phrase'))}
+    ${modHTML('listen','🎧','#FAEEDA','발음 & 듣기 훈련','연음·축약 — 원어민 속도 적응','필수','mb-core', listensHTML, isLocked('listen'), isW('listen'))}
+    ${modHTML('quiz','✅','#FCEBEB','복습 퀴즈','오늘 배운 것 확인','필수','mb-core', quizHTML, isLocked('quiz'), isW('quiz'))}
+    <div class="stitle">보너스 과정 (선택)</div>
+    ${modHTML('slang','🔥','#FBEAF0','슬랭 & 진짜 표현','교과서엔 없는 원어민 영어','보너스','mb-bonus', slangHTML, false, false)}
+    ${modHTML('story','📖','#EAF3DE','짧은 영어 스토리','미니 독해 + 문법 포인트','보너스','mb-bonus', storyHTML, false, false)}
+    ${modHTML('writing','✏️','#F1EFE8','AI 빨간펜 작문','내가 쓰면 AI 선생님이 바로 교정','보너스','mb-bonus', writingHTML, false, false)}
+  `;
+
+  // Render quiz
+  renderQuiz(content.quizzes, dayNum);
+  // Render writing
+  buildWritingUI(content, dayNum);
+
+  // Store current day ref
+  homeEl.dataset.dayNum = dayNum;
 }
 
-function buildWriting(){
-  document.getElementById('writing-content').innerHTML=`
-    <div class="card" style="margin-bottom:10px;">
+// ── Toggle module ──
+function toggleMod(id) {
+  const el = document.getElementById('mod-'+id);
+  if(!el || el.classList.contains('locked')) return;
+  const wasOpen = el.classList.contains('open');
+  document.querySelectorAll('.mod.open').forEach(m => m.classList.remove('open'));
+  if(!wasOpen) el.classList.add('open');
+}
+
+// ── Complete module ──
+function completeMod(id, dayNum) {
+  const sessionKey = 'sess_'+dayNum;
+  let sessionDone = new Set(S.get(sessionKey) || []);
+  sessionDone.add(id);
+  S.set(sessionKey, [...sessionDone]);
+
+  const el = document.getElementById('mod-'+id);
+  if(el){ el.classList.remove('open'); el.classList.add('done'); }
+  const dot = document.getElementById('dot-'+id);
+  if(dot) dot.className = 'mdot md-done';
+  const badge = document.getElementById('badge-'+id);
+  if(badge){ badge.textContent='완료 ✓'; badge.className='mbadge mb-done'; }
+
+  const coreOrder = ['word','phrase','listen','quiz'];
+  const idx = coreOrder.indexOf(id);
+  if(idx >= 0 && idx+1 < coreOrder.length) {
+    const next = document.getElementById('mod-'+coreOrder[idx+1]);
+    if(next) next.classList.remove('locked');
+    const nd = document.getElementById('dot-'+coreOrder[idx+1]);
+    if(nd) nd.className = 'mdot md-active';
+  }
+
+  // Update progress bar
+  const doneCnt = coreOrder.filter(m => sessionDone.has(m)).length;
+  const pct = Math.round(doneCnt / coreOrder.length * 100);
+  const pf = document.getElementById('pfill');
+  if(pf) pf.style.width = pct+'%';
+
+  // Check if all core done
+  if(doneCnt === coreOrder.length) {
+    const dateStr = getDayDate(dayNum);
+    if(!state.completedDates.includes(dateStr)) {
+      state.completedDates.push(dateStr);
+      state.totalDays = (state.totalDays||0) + 1;
+      if(currentContent) state.words = (state.words||0) + (currentContent.words?.length||5);
+      S.set('state', state);
+      renderStats();
+      showToast('🎉 Day '+dayNum+' 완료! 대단해요!');
+    }
+  } else {
+    showToast('✓ 완료! 잘하셨어요 👍');
+  }
+}
+
+// ── Quiz ──
+function renderQuiz(quizzes, dayNum) {
+  const el = document.getElementById('quiz-content');
+  if(!el) return;
+  if(quizIdx >= quizzes.length) {
+    const pct = Math.round(quizScore/quizzes.length*100);
+    state.scores = state.scores||[];
+    state.scores.push(pct);
+    if(state.scores.length>90) state.scores=state.scores.slice(-90);
+    S.set('state',state); renderStats();
+    el.innerHTML=`
+      <div class="qcard" style="text-align:center;">
+        <div style="font-size:38px;margin-bottom:10px;">${pct>=70?'🎉':'💪'}</div>
+        <div style="font-size:20px;font-weight:800;margin-bottom:5px;">${pct}% 정답!</div>
+        <div style="font-size:13px;color:var(--muted);margin-bottom:14px;">${quizScore}/${quizzes.length} 맞혔어요</div>
+        <button class="btn" onclick="completeMod('quiz',${dayNum})">오늘 학습 완료 ✓</button>
+      </div>`;
+    return;
+  }
+  const q = quizzes[quizIdx];
+  el.innerHTML=`
+    <div class="qcard">
+      <div style="font-size:11px;color:var(--muted);margin-bottom:7px;">문제 ${quizIdx+1} / ${quizzes.length}</div>
+      <div class="qq">${q.q}</div>
+      <div class="qopts">${q.opts.map((o,i)=>`<button class="qbtn" id="qb${i}" onclick="answerQuiz(${i},${JSON.stringify(quizzes).replace(/"/g,'&quot;')},${dayNum})">${o}</button>`).join('')}</div>
+      <div id="qfb"></div>
+    </div>`;
+}
+
+function answerQuiz(i, quizzes, dayNum) {
+  const q = quizzes[quizIdx];
+  document.querySelectorAll('.qbtn').forEach(b=>b.disabled=true);
+  if(i===q.ans){
+    document.getElementById('qb'+i).classList.add('ok');
+    document.getElementById('qfb').innerHTML=`<div class="qfb ok">✓ 정답! ${q.exp}</div>`;
+    quizScore++;
+  } else {
+    document.getElementById('qb'+i).classList.add('no');
+    document.getElementById('qb'+q.ans).classList.add('ok');
+    document.getElementById('qfb').innerHTML=`<div class="qfb no">오답 — ${q.exp}</div>`;
+  }
+  setTimeout(()=>{ quizIdx++; renderQuiz(quizzes, dayNum); }, 2000);
+}
+
+// ── Writing ──
+function buildWritingUI(content, dayNum) {
+  const el = document.getElementById('writing-content-area');
+  if(!el) return;
+  const wLevels = [
+    {step:'Step 1',label:'패턴 채워넣기',desc:'오늘 배운 패턴에 단어만 넣으면 돼요!',
+      tasks:[{pattern:content.phrases[0]?.en||'I feel like ___.',hint:'오늘 배운 단어 활용!',
+        ex:content.phrases[0]?.ex||'',exko:content.phrases[0]?.exko||''}]},
+    {step:'Step 2',label:'한 문장 써보기',desc:'주제 보고 자유롭게. 틀려도 OK!',
+      tasks:[{prompt:content.writingPrompt,ex:content.phrases[1]?.ex||'',exko:content.phrases[1]?.exko||''}]},
+    {step:'Step 3',label:'나의 하루 2~3문장',desc:'오늘 배운 단어 하나 이상 꼭 넣어서!',
+      tasks:[{prompt:`오늘 배운 단어(${content.words.map(w=>w.en).join(', ')}) 중 하나 이상 써서 오늘 하루 2~3문장으로!`,
+        ex:'',exko:''}]}
+  ];
+
+  function renderWT() {
+    const lv = wLevels[wStep]; const task = lv.tasks[Math.min(wTask, lv.tasks.length-1)];
+    const isPattern = wStep===0;
+    let h = `<div class="card" style="margin-bottom:10px;">
       <p style="font-size:13px;font-weight:700;margin-bottom:10px;">✏️ 초보 작문, 이렇게 시작해요</p>
-      <div style="display:flex;flex-direction:column;gap:0;">
+      <div>
         <div style="display:flex;gap:10px;padding:8px 0;border-bottom:1px solid var(--border);">
           <div style="width:24px;height:24px;border-radius:50%;background:var(--primary);color:#fff;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0;">1</div>
-          <div><div style="font-size:13px;font-weight:700;margin-bottom:1px;">패턴 채워넣기</div><div style="font-size:12px;color:var(--muted);">"I feel like ___." 빈칸만 채워요!</div></div>
+          <div><div style="font-size:13px;font-weight:700;">패턴 채워넣기</div><div style="font-size:12px;color:var(--muted);">빈칸만 채워요!</div></div>
         </div>
         <div style="display:flex;gap:10px;padding:8px 0;border-bottom:1px solid var(--border);">
           <div style="width:24px;height:24px;border-radius:50%;background:var(--primary);color:#fff;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0;">2</div>
-          <div><div style="font-size:13px;font-weight:700;margin-bottom:1px;">한 문장 자유 작성</div><div style="font-size:12px;color:var(--muted);">주제 보고 생각나는 대로. 틀려도 OK!</div></div>
+          <div><div style="font-size:13px;font-weight:700;">한 문장 자유 작성</div><div style="font-size:12px;color:var(--muted);">틀려도 OK!</div></div>
         </div>
         <div style="display:flex;gap:10px;padding:8px 0;">
           <div style="width:24px;height:24px;border-radius:50%;background:var(--primary);color:#fff;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0;">3</div>
-          <div><div style="font-size:13px;font-weight:700;margin-bottom:1px;">나의 하루 2~3문장</div><div style="font-size:12px;color:var(--muted);">오늘 배운 단어 하나 이상 꼭 넣기!</div></div>
+          <div><div style="font-size:13px;font-weight:700;">나의 하루 2~3문장</div><div style="font-size:12px;color:var(--muted);">오늘 배운 단어 하나 이상!</div></div>
         </div>
       </div>
     </div>
     <div id="wtask"></div>`;
-  renderWTask();
-}
+    el.innerHTML = h;
 
-function renderWTask(){
-  const lv=wLevels[wStep];const task=lv.tasks[wTask];
-  const isPattern=wStep===0;
-  let h=`<div class="card">
-    <span class="wpill">${lv.step} · ${lv.label}</span>
-    <p style="font-size:12px;color:var(--muted);margin-bottom:10px;">${lv.desc}</p>`;
-  if(isPattern){
-    h+=`<div style="background:var(--pl);border-radius:var(--rs);padding:10px 12px;margin-bottom:8px;">
-      <div style="font-size:16px;font-weight:700;color:var(--primary);">${task.pattern}</div>
-      <div style="font-size:12px;color:var(--muted);margin-top:3px;">힌트: ${task.hint}</div>
-    </div><p style="font-size:12px;color:var(--muted);margin-bottom:5px;">완성된 문장 전체를 써주세요:</p>`;
-  } else {
-    h+=`<div style="background:var(--bg);border-radius:var(--rs);padding:9px 11px;margin-bottom:8px;">
-      <p style="font-size:13px;font-weight:700;">${task.prompt}</p>
-    </div>`;
+    let th = `<div class="card">
+      <span style="display:inline-block;font-size:11px;font-weight:700;color:var(--primary);background:var(--pl);border-radius:99px;padding:2px 9px;margin-bottom:7px;">${lv.step} · ${lv.label}</span>
+      <p style="font-size:12px;color:var(--muted);margin-bottom:10px;">${lv.desc}</p>`;
+    if(isPattern) {
+      th += `<div style="background:var(--pl);border-radius:var(--rs);padding:10px 12px;margin-bottom:8px;">
+        <div style="font-size:16px;font-weight:700;color:var(--primary);">${task.pattern}</div>
+        <div style="font-size:12px;color:var(--muted);margin-top:3px;">힌트: ${task.hint}</div>
+      </div><p style="font-size:12px;color:var(--muted);margin-bottom:5px;">완성된 문장 전체를 써주세요:</p>`;
+    } else {
+      th += `<div style="background:var(--bg);border-radius:var(--rs);padding:9px 11px;margin-bottom:8px;">
+        <p style="font-size:13px;font-weight:700;">${task.prompt}</p>
+      </div>`;
+    }
+    th += `<textarea class="wtxt" id="w-input" placeholder="여기에 영어로 써보세요..." rows="3"></textarea>`;
+    if(task.ex) {
+      th += `<button onclick="document.getElementById('w-ex').style.display='block';this.style.display='none';"
+        style="font-size:12px;color:var(--primary);background:none;border:none;cursor:pointer;text-decoration:underline;margin:6px 0 4px;font-family:inherit;">예시 답안 보기</button>
+        <div id="w-ex" style="display:none;background:var(--okl);border-radius:var(--rs);padding:9px 11px;margin-bottom:8px;">
+          <p style="font-size:13px;font-weight:700;color:var(--ok);">${task.ex}</p>
+          <p style="font-size:12px;color:var(--muted);margin-top:3px;">${task.exko}</p>
+        </div>`;
+    }
+    th += `<button class="wsbtn" id="w-sbtn" onclick="checkWriting(${dayNum})">✏️ AI 선생님한테 교정 받기</button>
+      <div id="w-fb"></div>`;
+    th += `<div style="display:flex;gap:7px;margin-top:10px;">
+      ${wStep>0?`<button class="btn s" style="flex:1;padding:9px;" onclick="wStep--;wTask=0;buildWritingUI(currentContent,${dayNum})">← 이전 단계</button>`:''}
+      ${wStep<wLevels.length-1?`<button class="btn s" style="flex:1;padding:9px;" onclick="wStep++;wTask=0;buildWritingUI(currentContent,${dayNum})">다음 단계 →</button>`:''}
+    </div></div>`;
+    document.getElementById('wtask').innerHTML = th;
   }
-  h+=`<textarea class="wtxt" id="w-input" placeholder="여기에 영어로 써보세요..." rows="3"></textarea>
-    <button onclick="toggleWEx()" style="font-size:12px;color:var(--primary);background:none;border:none;cursor:pointer;text-decoration:underline;margin:6px 0 4px;font-family:inherit;touch-action:manipulation;">예시 답안 보기</button>
-    <div id="w-ex" style="display:none;background:var(--okl);border-radius:var(--rs);padding:9px 11px;margin-bottom:8px;">
-      <p style="font-size:13px;font-weight:700;color:var(--ok);">${task.ex}</p>
-      <p style="font-size:12px;color:var(--muted);margin-top:3px;">${task.exko}</p>
-    </div>
-    <button class="wsbtn" id="w-sbtn" onclick="checkWriting()">✏️ AI 선생님한테 교정 받기</button>
-    <div id="w-fb"></div>`;
-  const tot=lv.tasks.length;
-  h+=`<div style="display:flex;gap:7px;margin-top:10px;">
-    ${wTask>0?`<button class="btn s" style="flex:1;padding:9px;" onclick="wTask--;renderWTask()">← 이전</button>`:''}
-    ${wTask<tot-1?`<button class="btn s" style="flex:1;padding:9px;" onclick="wTask++;renderWTask()">다음 →</button>`:''}
-    ${wStep<wLevels.length-1?`<button class="btn s" style="flex:1;padding:9px;" onclick="wStep++;wTask=0;renderWTask()">다음 단계 →</button>`:''}
-  </div></div>`;
-  document.getElementById('wtask').innerHTML=h;
+  renderWT();
 }
 
-function toggleWEx(){const el=document.getElementById('w-ex');el.style.display=el.style.display==='none'?'block':'none';}
+async function checkWriting(dayNum) {
+  const inp = document.getElementById('w-input');
+  if(!inp) return;
+  const input = inp.value.trim();
+  if(!input){ showToast('먼저 영어로 써보세요!'); return; }
+  const btn = document.getElementById('w-sbtn');
+  btn.disabled=true;
+  btn.innerHTML='<div class="dots"><span></span><span></span><span></span></div> 읽고 있어요...';
 
-async function checkWriting(){
-  const inp=document.getElementById('w-input');
-  if(!inp){return;}
-  const input=inp.value.trim();
-  if(!input){showToast('먼저 영어로 써보세요!');return;}
-  const btn=document.getElementById('w-sbtn');
-  btn.disabled=true;btn.innerHTML='<div class="dots"><span></span><span></span><span></span></div> 읽고 있어요...';
-  const lv=wLevels[wStep];const task=lv.tasks[wTask];
-  const ctx=wStep===0?`패턴: "${task.pattern}" / 힌트: "${task.hint}"`:`주제: "${task.prompt||''}"`;
-  try{
-    const res=await fetch('https://api.anthropic.com/v1/messages',{
-      method:'POST',headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({model:'claude-sonnet-4-6',max_tokens:800,
+  try {
+    const res = await fetch('https://api.anthropic.com/v1/messages',{
+      method:'POST', headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({model:'claude-sonnet-4-6', max_tokens:1000,
         system:`친근한 영어 선생님. 초보 한국인 성인 교정. JSON만 응답 (다른 텍스트 절대 금지):
-{"corrected":"문법적으로 완전히 교정된 전체 문장","corrections":[{"before":"학습자가 틀리게 쓴 정확한 부분","after":"올바른 표현","reason":"왜 틀렸는지 한국어로 쉽게 1문장"}],"praise":"구체적인 칭찬 1~2문장 (예: tired라는 단어를 정확히 사용했어요!)","tip":"오늘 꼭 기억할 문법/표현 팁 1문장","isCorrect":true/false}
-규칙: corrections는 반드시 실제로 틀린 부분만. before에는 학습자 원문에서 틀린 부분 그대로. after에는 올바른 표현. 맞으면 corrections 빈 배열.`,
-        messages:[{role:'user',content:`맥락: ${ctx}\n학습자: "${input}"`}]})
+{"corrected":"문법적으로 완전히 교정된 전체 문장","corrections":[{"before":"학습자가 틀리게 쓴 정확한 부분","after":"올바른 표현","reason":"왜 틀렸는지 한국어로 쉽게 1문장"}],"praise":"구체적인 칭찬 1~2문장","tip":"오늘 꼭 기억할 팁 1문장","isCorrect":true/false}
+규칙: corrections는 실제로 틀린 부분만. before는 원문에서 틀린 부분 그대로. after는 올바른 표현. 맞으면 corrections 빈 배열.`,
+        messages:[{role:'user',content:`학습자 문장: "${input}"`}]
+      })
     });
-    const data=await res.json();
-    const fb=JSON.parse(data.content[0].text.replace(/```json|```/g,'').trim());
-    renderWFb(input,fb);
-  }catch(e){
-    document.getElementById('w-fb').innerHTML=`<div style="margin-top:10px;padding:10px;background:var(--errl);border-radius:var(--rs);font-size:13px;color:var(--err);">오류가 생겼어요. 다시 시도해보세요.</div>`;
+    const data = await res.json();
+    const fb = JSON.parse(data.content[0].text.replace(/```json|```/g,'').trim());
+    renderWFb(input, fb);
+  } catch(e) {
+    document.getElementById('w-fb').innerHTML=`<div style="margin-top:10px;padding:10px;background:var(--errl);border-radius:var(--rs);font-size:13px;color:var(--err);">오류가 생겼어요. 다시 시도해주세요.</div>`;
   }
-  btn.disabled=false;btn.innerHTML='✏️ 다시 교정 받기';
+  btn.disabled=false; btn.innerHTML='✏️ 다시 교정 받기';
 }
 
-function renderWFb(orig,fb){
-  let h=`<div class="fbblock">
+function renderWFb(orig, fb) {
+  let h = `<div class="fbblock">
     <div class="fbsec" style="background:${fb.isCorrect?'var(--okl)':'var(--card)'}">
       <div class="fblabel ${fb.isCorrect?'g':'b'}">${fb.isCorrect?'✓ 완벽해요!':'✏️ 교정된 문장'}</div>
-      <div style="font-size:15px;font-weight:700;color:${fb.isCorrect?'var(--ok)':'var(--text)'};">${fb.corrected}</div>
-      ${!fb.isCorrect?`<div style="margin-top:5px;font-size:12px;color:var(--muted);">내 문장: <span style="text-decoration:line-through;">${orig}</span></div>`:''}
+      <div style="font-size:15px;font-weight:700;">${fb.corrected}</div>
+      ${!fb.isCorrect?`<div style="margin-top:6px;font-size:12px;color:var(--muted);">내 문장: <span style="text-decoration:line-through;color:var(--err);">${orig}</span></div>`:''}
     </div>`;
-  if(fb.corrections?.length){
-    h+=`<div class="fbsec"><div class="fblabel r">🔴 이 부분을 고쳐봐요</div>`;
-    fb.corrections.forEach(c=>{h+=`<div style="margin-bottom:8px;"><div class="ci-before">✗ ${c.before}</div><div class="ci-after">✓ ${c.after}</div><div class="ci-why">${c.reason}</div></div>`;});
+  if(fb.corrections && fb.corrections.length){
+    h+=`<div class="fbsec"><div class="fblabel r">🔴 빨간펜 교정</div>`;
+    fb.corrections.forEach((c,i)=>{
+      h+=`<div style="margin-bottom:10px;padding:10px;background:#fff8f8;border-radius:8px;border-left:3px solid var(--err);">
+        <div style="font-size:12px;color:var(--muted);margin-bottom:4px;">틀린 부분 ${i+1}</div>
+        <div style="font-size:13px;color:var(--err);text-decoration:line-through;">✗ "${c.before}"</div>
+        <div style="font-size:13px;color:var(--ok);font-weight:700;margin-top:4px;">✓ "${c.after}"</div>
+        <div style="font-size:12px;color:var(--muted);margin-top:6px;padding-top:6px;border-top:1px solid var(--border);">📌 ${c.reason}</div>
+      </div>`;
+    });
     h+=`</div>`;
   }
-  h+=`<div class="fbsec" style="background:var(--okl)"><div class="fblabel g">💚 잘한 점</div><div style="font-size:13px;color:var(--ok);">${fb.praise}</div></div>
-    <div class="fbsec"><div class="fblabel b">💡 오늘의 팁</div><div style="font-size:13px;color:var(--muted);">${fb.tip}</div></div>
-  </div>
-  <button class="abtn" style="margin-top:9px;width:100%;justify-content:center;" onclick="speak('${fb.corrected.replace(/'/g,"\\'").replace(/"/g,'')}',0.82)">▶ 교정된 문장 듣기</button>`;
-  document.getElementById('w-fb').innerHTML=h;
-  // Set audio button safely via JS
-  const audioArea=document.getElementById('w-audio-btn');
-  if(audioArea){
-    const abtn=document.createElement('button');
-    abtn.className='abtn';
-    abtn.style='width:100%;justify-content:center;margin-top:0;';
-    abtn.textContent='▶ 교정된 문장 듣기';
-    abtn.dataset.speak=fb.corrected;
-    abtn.dataset.rate='0.82';
-    audioArea.appendChild(abtn);
-  }
-}
-
-// ── Accordion — no event conflict ──
-function toggleMod(id){
-  const el=document.getElementById('mod-'+id);
-  if(el.classList.contains('locked'))return;
-  const wasOpen=el.classList.contains('open');
-  document.querySelectorAll('.mod.open').forEach(m=>m.classList.remove('open'));
-  if(!wasOpen)el.classList.add('open');
-}
-
-// ── Complete ──
-const coreOrder=['word','phrase','listen','quiz'];
-function completeMod(id){
-  sessionDone.add(id);saveSession();
-  const el=document.getElementById('mod-'+id);
-  el.classList.remove('open');el.classList.add('done');
-  const dot=document.getElementById('dot-'+id);
-  if(dot)dot.className='mdot md-done';
-  const badge=document.getElementById('badge-'+id);
-  if(badge){badge.textContent='완료 ✓';badge.className='mbadge mb-done';}
-  const idx=coreOrder.indexOf(id);
-  if(idx>=0&&idx+1<coreOrder.length){
-    const next='mod-'+coreOrder[idx+1];
-    document.getElementById(next)?.classList.remove('locked');
-    const nd=document.getElementById('dot-'+coreOrder[idx+1]);
-    if(nd)nd.className='mdot md-active';
-  }
-  updateProgress();
-  showToast('✓ 완료! 잘하셨어요 👍');
-}
-
-function updateProgress(){
-  const done=coreOrder.filter(m=>sessionDone.has(m)).length;
-  const pct=Math.round(done/coreOrder.length*100);
-  document.getElementById('pfill').style.width=pct+'%';
-  if(done===coreOrder.length&&!state.completedDates.includes(today)){
-    state.completedDates.push(today);
-    state.totalDays=(state.totalDays||0)+1;
-    state.words=(state.words||0)+words.length;
-    saveState();renderStats();renderCal();
-    showToast('🎉 오늘 학습 완료! 내일도 EASY DAY!');
-  }
+  h+=`<div class="fbsec" style="background:var(--okl)"><div class="fblabel g">💚 잘한 점</div><div style="font-size:13px;color:var(--ok);line-height:1.6;">${fb.praise}</div></div>
+    <div class="fbsec"><div class="fblabel b">💡 오늘의 팁</div><div style="font-size:13px;color:var(--muted);line-height:1.6;">${fb.tip}</div></div>
+  </div>`;
+  const audioDiv = document.createElement('div');
+  audioDiv.style.marginTop='9px';
+  const ab = document.createElement('button');
+  ab.className='abtn'; ab.style.width='100%'; ab.style.justifyContent='center';
+  ab.textContent='▶ 교정된 문장 듣기';
+  ab.dataset.speak = fb.corrected; ab.dataset.rate = '0.82';
+  audioDiv.appendChild(ab);
+  document.getElementById('w-fb').innerHTML = h;
+  document.getElementById('w-fb').appendChild(audioDiv);
 }
 
 // ── Stats ──
-function renderStats(){
-  document.getElementById('streak-num').textContent=state.streak;
-  document.getElementById('s-streak').textContent=state.streak;
-  document.getElementById('s-words').textContent=state.words||0;
-  const sc=state.scores||[];
-  document.getElementById('s-score').textContent=sc.length?Math.round(sc.reduce((a,b)=>a+b,0)/sc.length)+'%':'—';
-  document.getElementById('test-prog').textContent=`현재 ${state.totalDays||0}일 완료 · ${Math.max(0,30-(state.totalDays||0))}일 남음`;
+function renderStats() {
+  document.getElementById('streak-num').textContent = state.streak;
+  document.getElementById('s-streak').textContent = state.streak;
+  document.getElementById('s-days').textContent = state.totalDays||0;
+  const sc = state.scores||[];
+  document.getElementById('s-score').textContent = sc.length ? Math.round(sc.reduce((a,b)=>a+b,0)/sc.length)+'%' : '—';
+
+  // Level badge
+  const days = state.totalDays||0;
+  const lvl = days<30?'Lv.1 Beginner':days<60?'Lv.2 Elementary':days<90?'Lv.3 Pre-Inter':days<120?'Lv.4 Intermediate':'Lv.5 Upper-Inter';
+  document.getElementById('level-badge').textContent = lvl;
+
+  // Curriculum list
+  const cl = document.getElementById('curriculum-list');
+  if(cl) {
+    cl.innerHTML = CURRICULUM.map((c,i) => {
+      const wDays = state.completedDates.filter(d => {
+        const dn = getDayNum(d);
+        return Math.ceil(dn/7)-1 === i;
+      }).length;
+      const isCurrentWeek = Math.ceil(todayDayNum/7)-1 === i;
+      return `<div style="padding:10px 14px;border-bottom:${i<CURRICULUM.length-1?'1px solid var(--border)':'none'};display:flex;gap:10px;align-items:center;">
+        <div style="min-width:52px;font-size:10px;font-weight:700;color:${isCurrentWeek?'var(--primary)':'var(--muted)'};background:${isCurrentWeek?'var(--pl)':'var(--bg)'};border-radius:99px;padding:2px 0;text-align:center;border:1px solid var(--border);">M${c.month}W${c.week%4||4}</div>
+        <div style="flex:1;min-width:0;">
+          <div style="font-size:12px;font-weight:${isCurrentWeek?'700':'500'};color:${isCurrentWeek?'var(--text)':'var(--muted)'};">${c.theme}</div>
+        </div>
+        <div style="font-size:11px;color:${wDays>=5?'var(--ok)':'var(--light)'};">${wDays>=5?'✓ 완료':wDays>0?wDays+'/7일':''}</div>
+      </div>`;
+    }).join('');
+  }
 }
 
-function renderCal(){
+function renderCal() {
   const days=['일','월','화','수','목','금','토'];
-  const now=new Date();const dow=now.getDay();
-  const cal=document.getElementById('week-cal');cal.innerHTML='';
+  const now=new Date(); const dow=now.getDay();
+  const cal=document.getElementById('week-cal'); if(!cal)return; cal.innerHTML='';
   for(let i=0;i<7;i++){
-    const d=new Date(now);d.setDate(now.getDate()-dow+i);
+    const d=new Date(now); d.setDate(now.getDate()-dow+i);
     const ds=d.toISOString().slice(0,10);
-    const isT=ds===today;const done=(state.completedDates||[]).includes(ds);
-    const div=document.createElement('div');div.className='calday';
+    const isT=ds===today; const done=(state.completedDates||[]).includes(ds);
+    const div=document.createElement('div'); div.className='calday';
     div.innerHTML=`<div class="callbl">${days[i]}</div><div class="caldot ${isT?'cal-today':done?'cal-done':'cal-miss'}">${done?'✓':isT?'오':'-'}</div>`;
     cal.appendChild(div);
   }
 }
 
-function renderDayLabel(){
-  const start=S.get('start')||today;
-  if(!S.get('start'))S.set('start',today);
-  const diff=Math.floor((new Date(today)-new Date(start))/86400000)+1;
-  document.getElementById('day-lbl').textContent='Day '+diff;
-}
-
-function showPage(name){
+function showPage(name) {
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
   document.querySelectorAll('.bn').forEach(b=>b.classList.remove('active'));
   document.getElementById('page-'+name).classList.add('active');
   document.getElementById('bn-'+name).classList.add('active');
+  if(name==='stats'){renderStats();renderCal();}
 }
 
-function showToast(msg){
+function showToast(msg) {
   const t=document.getElementById('toast');
-  t.textContent=msg;t.classList.add('show');
-  setTimeout(()=>t.classList.remove('show'),2500);
+  t.textContent=msg; t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'),2800);
 }
 
-// ── Restore session ──
-function restore(){
-  sessionDone.forEach(id=>{
-    const el=document.getElementById('mod-'+id);if(!el)return;
-    el.classList.add('done');
-    const badge=document.getElementById('badge-'+id);
-    if(badge){badge.textContent='완료 ✓';badge.className='mbadge mb-done';}
-    const dot=document.getElementById('dot-'+id);
-    if(dot)dot.className='mdot md-done';
-  });
-  coreOrder.forEach((id,idx)=>{
-    const prev=coreOrder[idx-1];
-    if(!prev||sessionDone.has(prev)){
-      const el=document.getElementById('mod-'+id);
-      if(el&&!sessionDone.has(id))el.classList.remove('locked');
-    }
-  });
-  const done=coreOrder.filter(m=>sessionDone.has(m)).length;
-  document.getElementById('pfill').style.width=Math.round(done/coreOrder.length*100)+'%';
-}
-
-buildWords();buildPhrases();buildListens();buildQuiz();buildSlangs();buildWriting();
-restore();renderStats();renderCal();renderDayLabel();
+// ── Init ──
+renderStats(); renderCal();
+renderHome(todayDayNum);
 </script>
 </body>
 </html>

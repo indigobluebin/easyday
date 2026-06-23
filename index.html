@@ -288,8 +288,8 @@
           <div style="background:var(--warnl);border-radius:var(--rs);padding:7px 10px;margin-bottom:12px;font-size:12px;color:var(--warn);font-weight:600;">📖 먼저 혼자 읽어보세요! 다 읽고 나서 해석 버튼!</div>
           <p style="font-size:15px;line-height:1.9;margin-bottom:14px;font-style:italic;">"Sarah woke up late. She ran to the bus stop, but the bus was already gone. 'Not again!' she said. So she decided to walk — and found a beautiful café she'd never seen before."</p>
           <div class="arow" style="margin-bottom:12px;">
-            <button class="abtn" onclick="speak('Sarah woke up late. She ran to the bus stop, but the bus was already gone. Not again! So she decided to walk, and found a beautiful cafe.',0.82)">▶ 천천히</button>
-            <button class="abtn s" onclick="speak('Sarah woke up late. She ran to the bus stop, but the bus was already gone. Not again! So she decided to walk, and found a beautiful cafe.',1.0)">▶ 원속도</button>
+            <button class="abtn" data-speak="Sarah woke up late. She ran to the bus stop, but the bus was already gone. Not again! So she decided to walk, and found a beautiful cafe." data-rate="0.82">▶ 천천히</button>
+            <button class="abtn s" data-speak="Sarah woke up late. She ran to the bus stop, but the bus was already gone. Not again! So she decided to walk, and found a beautiful cafe." data-rate="1.0">▶ 원속도</button>
           </div>
           <button onclick="document.getElementById('story-trans').style.display='block';this.style.display='none';"
             style="width:100%;padding:9px;border-radius:var(--rs);border:1px dashed var(--border);background:var(--bg);color:var(--muted);cursor:pointer;font-size:13px;font-weight:600;margin-bottom:10px;font-family:inherit;touch-action:manipulation;">
@@ -465,9 +465,16 @@ const wLevels=[
 // ── Speech ──
 function speak(t,r){
   const u=new SpeechSynthesisUtterance(t);
-  u.lang='en-US';u.rate=r||0.82;
+  u.lang='en-US';u.rate=parseFloat(r)||0.82;
   speechSynthesis.cancel();speechSynthesis.speak(u);
 }
+document.addEventListener('click',function(e){
+  const btn=e.target.closest('[data-speak]');
+  if(!btn)return;
+  e.stopPropagation();
+  speak(btn.dataset.speak, btn.dataset.rate||0.82);
+});
+function sb(txt,rate){return `data-speak="${txt.replace(/"/g,'&quot;')}" data-rate="${rate||0.82}"`;}
 
 // ── Build panels ──
 function buildWords(){
@@ -480,8 +487,8 @@ function buildWords(){
       <div class="wex">"${w.ex}"</div>
       <div class="wexko">${w.exko}</div>
       <div class="arow">
-        <button class="abtn" onclick="speak('${w.en}')">▶ 단어</button>
-        <button class="abtn s" onclick="speak('${w.ex}',0.78)">▶ 예문</button>
+        <button class="abtn" ${sb(w.en,0.82)}>▶ 단어</button>
+        <button class="abtn s" ${sb(w.ex,0.78)}>▶ 예문</button>
       </div>
     </div>`).join('');
 }
@@ -495,8 +502,8 @@ function buildPhrases(){
       <div class="phr-ex">"${p.ex}"</div>
       <div class="phr-exko">${p.exko}</div>
       <div class="arow">
-        <button class="abtn" onclick="speak('${p.en.replace(/\.\.\./g,'')}')">▶ 패턴</button>
-        <button class="abtn s" onclick="speak('${p.ex}',0.78)">▶ 예문</button>
+        <button class="abtn" ${sb(p.en.replace(/\.\.\.$/,''),0.82)}>▶ 패턴</button>
+        <button class="abtn s" ${sb(p.ex,0.78)}>▶ 예문</button>
       </div>
     </div>`).join('');
 }
@@ -509,8 +516,8 @@ function buildListens(){
       <div class="lst-kor">🔊 ${l.kor}</div>
       <div class="lst-ko">${l.ko}</div>
       <div class="arow">
-        <button class="abtn" onclick="speak('${l.phrase}',0.78)">▶ 천천히</button>
-        <button class="abtn s" onclick="speak('${l.phrase}',1.0)">▶ 원속도</button>
+        <button class="abtn" ${sb(l.phrase,0.78)}>▶ 천천히</button>
+        <button class="abtn s" ${sb(l.phrase,1.0)}>▶ 원속도</button>
       </div>
       <div class="lst-tip">💡 ${l.tip}</div>
     </div>`).join('');
@@ -555,7 +562,7 @@ function buildSlangs(){
       <div class="wko">${s.meaning}</div>
       <div class="wex">"${s.ex}"</div>
       <div class="wexko">상황: ${s.ctx}</div>
-      <div class="arow"><button class="abtn" onclick="speak('${s.ex}',0.82)">▶ 예문 듣기</button></div>
+      <div class="arow"><button class="abtn" ${sb(s.ex,0.82)}>▶ 예문 듣기</button></div>
     </div>`).join('');
 }
 
@@ -630,9 +637,9 @@ async function checkWriting(){
     const res=await fetch('https://api.anthropic.com/v1/messages',{
       method:'POST',headers:{'Content-Type':'application/json'},
       body:JSON.stringify({model:'claude-sonnet-4-6',max_tokens:800,
-        system:`친근한 영어 선생님. 초보 한국인 성인 교정. JSON만 응답:
-{"corrected":"교정문장","corrections":[{"before":"틀린부분","after":"맞는표현","reason":"이유한국어"}],"praise":"칭찬1~2문장","tip":"팁1문장","isCorrect":true/false}
-핵심 오류 1~2개만. 칭찬 구체적으로. 쉽게.`,
+        system:`친근한 영어 선생님. 초보 한국인 성인 교정. JSON만 응답 (다른 텍스트 절대 금지):
+{"corrected":"문법적으로 완전히 교정된 전체 문장","corrections":[{"before":"학습자가 틀리게 쓴 정확한 부분","after":"올바른 표현","reason":"왜 틀렸는지 한국어로 쉽게 1문장"}],"praise":"구체적인 칭찬 1~2문장 (예: tired라는 단어를 정확히 사용했어요!)","tip":"오늘 꼭 기억할 문법/표현 팁 1문장","isCorrect":true/false}
+규칙: corrections는 반드시 실제로 틀린 부분만. before에는 학습자 원문에서 틀린 부분 그대로. after에는 올바른 표현. 맞으면 corrections 빈 배열.`,
         messages:[{role:'user',content:`맥락: ${ctx}\n학습자: "${input}"`}]})
     });
     const data=await res.json();
@@ -661,6 +668,17 @@ function renderWFb(orig,fb){
   </div>
   <button class="abtn" style="margin-top:9px;width:100%;justify-content:center;" onclick="speak('${fb.corrected.replace(/'/g,"\\'").replace(/"/g,'')}',0.82)">▶ 교정된 문장 듣기</button>`;
   document.getElementById('w-fb').innerHTML=h;
+  // Set audio button safely via JS
+  const audioArea=document.getElementById('w-audio-btn');
+  if(audioArea){
+    const abtn=document.createElement('button');
+    abtn.className='abtn';
+    abtn.style='width:100%;justify-content:center;margin-top:0;';
+    abtn.textContent='▶ 교정된 문장 듣기';
+    abtn.dataset.speak=fb.corrected;
+    abtn.dataset.rate='0.82';
+    audioArea.appendChild(abtn);
+  }
 }
 
 // ── Accordion — no event conflict ──
